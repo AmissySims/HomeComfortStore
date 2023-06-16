@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0B6176CE-CEFB-4B9E-97ED-3E6504D781CB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ComfortStoreLibrary</RootNamespace>
+    <AssemblyName>ComfortStoreLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Models\Card.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CategoryProduct.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ComfortStore.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComfortStore.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ComfortStore.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ComfortStore.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComfortStore.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeliveryPoint.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeliveryType.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderProduct.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrdStatus.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductPhoto.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Provider.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Shipment.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShipmentProduct.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Warehouse.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\ComfortStore.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ComfortStore.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Models\ComfortStore.edmx.diagram">
+      <DependentUpon>ComfortStore.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\ComfortStore.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ComfortStore.Context.cs</LastGenOutput>
+      <DependentUpon>ComfortStore.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ComfortStore.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ComfortStore.edmx</DependentUpon>
+      <LastGenOutput>ComfortStore.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

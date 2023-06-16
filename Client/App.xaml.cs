@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace HomeComfortStore
+namespace Client
 {
     /// <summary>
     /// Логика взаимодействия для App.xaml

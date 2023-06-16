@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeComfortStore", "HomeComfortStore\HomeComfortStore.csproj", "{91D5F9AF-4496-450F-9C59-79F7FC839EE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin", "HomeComfortStore\Admin.csproj", "{91D5F9AF-4496-450F-9C59-79F7FC839EE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{249D53D5-474F-4EE2-A8BE-152A33B45A78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corier", "Corier\Corier.csproj", "{01E7CC34-3486-4160-9E1B-43CD3A27E692}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreKeeper", "StoreKeeper\StoreKeeper.csproj", "{93965B1D-3173-4ACF-9339-CC1DDC4F383D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComfortStoreLibrary", "ComfortStoreLibrary\ComfortStoreLibrary.csproj", "{0B6176CE-CEFB-4B9E-97ED-3E6504D781CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{91D5F9AF-4496-450F-9C59-79F7FC839EE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91D5F9AF-4496-450F-9C59-79F7FC839EE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91D5F9AF-4496-450F-9C59-79F7FC839EE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{249D53D5-474F-4EE2-A8BE-152A33B45A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{249D53D5-474F-4EE2-A8BE-152A33B45A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{249D53D5-474F-4EE2-A8BE-152A33B45A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{249D53D5-474F-4EE2-A8BE-152A33B45A78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01E7CC34-3486-4160-9E1B-43CD3A27E692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01E7CC34-3486-4160-9E1B-43CD3A27E692}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01E7CC34-3486-4160-9E1B-43CD3A27E692}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01E7CC34-3486-4160-9E1B-43CD3A27E692}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93965B1D-3173-4ACF-9339-CC1DDC4F383D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93965B1D-3173-4ACF-9339-CC1DDC4F383D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93965B1D-3173-4ACF-9339-CC1DDC4F383D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93965B1D-3173-4ACF-9339-CC1DDC4F383D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B6176CE-CEFB-4B9E-97ED-3E6504D781CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B6176CE-CEFB-4B9E-97ED-3E6504D781CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B6176CE-CEFB-4B9E-97ED-3E6504D781CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B6176CE-CEFB-4B9E-97ED-3E6504D781CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
