@@ -24,22 +24,24 @@
        
         <Image Source="\Resources\comfort1.jpg" Margin="15"
                    Height="300" Width="600"/>
-        <Rectangle Fill="Black" Opacity="0.43" 
+        <Rectangle Fill="#FF4D3D3D" Opacity="0.4" 
                    Height="300" Width="480"/>
-
+        <Rectangle Fill="#FF7B7171" Opacity="0.9" 
+                   Height="220" Width="445" RadiusX="12" RadiusY="12" />
         <Border HorizontalAlignment="Center" 
                       Height="300" Width="480"
                     VerticalAlignment="Center">
-            <StackPanel Margin="10" HorizontalAlignment="Center"
+            <StackPanel Margin="25" HorizontalAlignment="Center"
                         VerticalAlignment="Center">
                 <TextBlock TextWrapping="Wrap" 
                            Foreground="White"
+                           Margin="5"
                            Text="        Мы стремимся предложить нашим клиентам только лучшую продукцию, чтобы помочь им создать дом, в котором они будут чувствовать себя комфортно и уютно.">
                     <TextBlock.Effect>
                         <DropShadowEffect Opacity="0.6"/>
                     </TextBlock.Effect>
                 </TextBlock>
-                <TextBlock Foreground="White" 
+                <TextBlock Foreground="White" Margin="5"
                     TextWrapping="Wrap" Text="        Мы верим, что дом - это место, где мы можем быть сами собой, отдыхать и заряжаться энергией. Поэтому у нас вы найдете не только красивую мебель и украшения для дома, но и все, что необходимо для создания теплой и уютной атмосферы - от простых свечей до комфортных ковров и идеально подобранного освещения.">
                     <TextBlock.Effect>
                         <DropShadowEffect Opacity="0.6"/>
@@ -47,7 +49,8 @@
 
                 </TextBlock>
                 <TextBlock Foreground="White"
-                    TextWrapping="Wrap" Text="        В Уютном доме вы найдете все необходимое для обустройства своего дома и создания прекрасной атмосферы, где вы будете чувствовать себя комфортно и уютно.">
+                    TextWrapping="Wrap"
+                           Margin="5" Text="        В Уютном доме вы найдете все необходимое для обустройства своего дома и создания прекрасной атмосферы, где вы будете чувствовать себя комфортно и уютно.">
                     <TextBlock.Effect>
                         <DropShadowEffect Opacity="0.6"/>
                     </TextBlock.Effect>

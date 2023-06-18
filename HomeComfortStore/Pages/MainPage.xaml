@@ -11,7 +11,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
             <ImageBrush ImageSource="\Resources\back.jpg" 
@@ -42,16 +42,22 @@
                     Grid.Row="0">
             <Button Content=" Главная " 
                     x:Name="MainBt"
+                    Style="{StaticResource UpBt}"
                     Click="MainBt_Click"
-                    Margin="10 10" />
+                    Width="90"
+                    Margin="5 0" />
             <Button Content=" Аккаунт " 
                     x:Name="AccountBt"
+                     Style="{StaticResource UpBt}"
                     Click="AccountBt_Click"
-                    Margin="10 10" />
+                     Width="90"
+                    Margin="5 0" />
             <Button Content=" Выход " 
                     x:Name="ExitBt"
+                     Width="90"
+                     Style="{StaticResource UpBt}"
                     Click="ExitBt_Click"
-                    Margin="10 10" />
+                    Margin="5 0" />
         </StackPanel>
         <Border Grid.Column="0" 
                 Grid.Row="2" 
@@ -60,31 +66,47 @@
                 BorderThickness="2">
             <StackPanel Orientation="Vertical" Margin="5" 
                         VerticalAlignment="Center">
+                
                 <Button Content=" Товары " 
                     x:Name="ProductBt"
                     Click="ProductBt_Click"
-                    Margin="10 5" />
+                    Margin="10 5"
+                        Style="{StaticResource MainBt}"/>
+                
                 <Button Content=" Пользователи " 
                     x:Name="UsersBt"
                     Click="UsersBt_Click"
-                    Margin="10 5" />
+                    Margin="10 5" 
+                        Style="{StaticResource MainBt}"/>
+                
                 <Button Content=" Поставки " 
                     x:Name="ShipmentsBt"
                     Click="ShipmentsBt_Click"
-                    Margin="10 5" />
+                    Margin="10 5" 
+                        Style="{StaticResource MainBt}"/>
+                
                 <Button Content=" Заказы " 
                     x:Name="OrdersBt"
+                        Style="{StaticResource MainBt}"
                     Click="OrdersBt_Click"
                     Margin="10 5" />
+                
                 <Button Content=" Статистика " 
                     x:Name="StatisticBt"
                     Click="StatisticBt_Click"
-                    Margin="10 5" />
-                <Button Content=" Адреса пунктов выдачи " 
+                    Margin="10 5"
+                        Style="{StaticResource MainBt}"/>
+                
+                <Button
                     x:Name="DeliveryPountsBt"
                     Click="StatisticBt_Click"
-                    Margin="10 5" />
-               
+                    Style="{StaticResource MainBt}"
+                    Margin="10 5">
+                    <TextBlock TextAlignment="Center">Адреса пунктов
+                        <LineBreak/>выдачи</TextBlock>
+                    
+                </Button>
+
             </StackPanel>
         </Border>
         <Frame x:Name="Main1Frame" Grid.Column="1" Grid.Row="2" NavigationUIVisibility="Hidden"/>

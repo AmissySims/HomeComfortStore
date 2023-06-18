@@ -31,6 +31,7 @@
                 <StackPanel Margin="5">
                     <Button x:Name="EnterBt" Content="Войти" 
                             Margin="5" 
+                            Style="{StaticResource AuthBt}"
                             Click="EnterBt_Click"/>
                 </StackPanel>
             </StackPanel>

@@ -4,11 +4,38 @@
              xmlns:local="clr-namespace:HomeComfortStore"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="Button">
+        <Style TargetType="Button" x:Key="MainBt">
             <Setter Property="Background" Value="DarkOliveGreen"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderBrush" Value="HotPink"/>
+            <Setter Property="BorderBrush" Value="Goldenrod"/>
             <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <Style TargetType="Button" x:Key="AuthBt">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <Style TargetType="Button" x:Key="UpBt">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Pink" />
+
+                </Trigger>
+            </Style.Triggers>
+
         </Style>
     </Application.Resources>
 </Application>
