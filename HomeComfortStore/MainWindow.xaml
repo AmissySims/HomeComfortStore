@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HomeComfortStore"
         mc:Ignorable="d"
-        Title="Админ" Height="450" Width="800">
+        Title="Администратор" Height="500" Width="800"
+        Icon="\Resources\icon.png">
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>

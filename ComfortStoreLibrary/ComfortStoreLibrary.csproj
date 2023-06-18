@@ -87,6 +87,7 @@
     <Compile Include="Models\OrdStatus.cs">
       <DependentUpon>ComfortStore.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partials\AccountUser.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>ComfortStore.tt</DependentUpon>
     </Compile>

@@ -1,5 +1,4 @@
-﻿using HomeComfortStore.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Admin
+namespace HomeComfortStore.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для OrdersPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class OrdersPage : Page
     {
-        public MainWindow()
+        public OrdersPage()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new AuthPage());
         }
     }
 }
