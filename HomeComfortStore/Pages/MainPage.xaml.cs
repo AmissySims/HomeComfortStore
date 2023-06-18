@@ -23,6 +23,7 @@ namespace HomeComfortStore.Pages
         public MainPage()
         {
             InitializeComponent();
+            Main1Frame.NavigationService.Navigate(new MainMainPage());
         }
 
         private void ExitBt_Click(object sender, RoutedEventArgs e)
@@ -32,32 +33,37 @@ namespace HomeComfortStore.Pages
 
         private void AccountBt_Click(object sender, RoutedEventArgs e)
         {
-
+            Main1Frame.NavigationService.Navigate(new AccountPage());
         }
 
         private void MainBt_Click(object sender, RoutedEventArgs e)
         {
-
+            Main1Frame.NavigationService.Navigate(new MainMainPage());
         }
 
         private void ProductBt_Click(object sender, RoutedEventArgs e)
         {
-
+            Main1Frame.NavigationService.Navigate(new ProductsPage());
         }
 
         private void UsersBt_Click(object sender, RoutedEventArgs e)
         {
-
+            Main1Frame.NavigationService.Navigate(new UsersPage());
         }
 
         private void ShipmentsBt_Click(object sender, RoutedEventArgs e)
         {
-
+            Main1Frame.NavigationService.Navigate(new ShipmentsPage());
         }
 
         private void OrdersBt_Click(object sender, RoutedEventArgs e)
         {
+            Main1Frame.NavigationService.Navigate(new OrdersPage());
+        }
 
+        private void StatisticBt_Click(object sender, RoutedEventArgs e)
+        {
+            Main1Frame.NavigationService.Navigate(new StatPage());
         }
     }
 }

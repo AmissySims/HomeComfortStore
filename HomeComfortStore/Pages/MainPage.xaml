@@ -22,7 +22,9 @@
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="18*"/>
         </Grid.RowDefinitions>
+       
         <Rectangle Grid.Row="1" Fill="LightGray" Grid.ColumnSpan="2"  />
+       
         <StackPanel Grid.Row="0"
                     Grid.Column="0"
                     Orientation="Horizontal" 
@@ -54,7 +56,7 @@
         <Border Grid.Column="0" 
                 Grid.Row="2" 
                 BorderBrush="DarkGreen" 
-                Margin="10 30"
+                Margin="10 60"
                 BorderThickness="2">
             <StackPanel Orientation="Vertical" Margin="5" 
                         VerticalAlignment="Center">
@@ -74,6 +76,15 @@
                     x:Name="OrdersBt"
                     Click="OrdersBt_Click"
                     Margin="10 5" />
+                <Button Content=" Статистика " 
+                    x:Name="StatisticBt"
+                    Click="StatisticBt_Click"
+                    Margin="10 5" />
+                <Button Content=" Адреса пунктов выдачи " 
+                    x:Name="DeliveryPountsBt"
+                    Click="StatisticBt_Click"
+                    Margin="10 5" />
+               
             </StackPanel>
         </Border>
         <Frame x:Name="Main1Frame" Grid.Column="1" Grid.Row="2" NavigationUIVisibility="Hidden"/>

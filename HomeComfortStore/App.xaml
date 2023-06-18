@@ -7,7 +7,7 @@
         <Style TargetType="Button">
             <Setter Property="Background" Value="DarkOliveGreen"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderBrush" Value="Goldenrod"/>
+            <Setter Property="BorderBrush" Value="HotPink"/>
             <Setter Property="BorderThickness" Value="2"/>
         </Style>
     </Application.Resources>

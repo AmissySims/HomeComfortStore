@@ -24,7 +24,7 @@
        
         <Image Source="\Resources\comfort1.jpg" Margin="15"
                    Height="300" Width="600"/>
-        <Rectangle Fill="Black" Opacity="0.43" 
+        <Rectangle Fill="Black" Opacity="0.5" 
                    Height="300" Width="480"/>
 
         <Border HorizontalAlignment="Center" 
@@ -36,20 +36,20 @@
                            Foreground="White"
                            Text="        Мы стремимся предложить нашим клиентам только лучшую продукцию, чтобы помочь им создать дом, в котором они будут чувствовать себя комфортно и уютно.">
                     <TextBlock.Effect>
-                        <DropShadowEffect Opacity="0.6"/>
+                        <DropShadowEffect Opacity="0.6" Color="Beige"/>
                     </TextBlock.Effect>
                 </TextBlock>
                 <TextBlock Foreground="White" 
                     TextWrapping="Wrap" Text="        Мы верим, что дом - это место, где мы можем быть сами собой, отдыхать и заряжаться энергией. Поэтому у нас вы найдете не только красивую мебель и украшения для дома, но и все, что необходимо для создания теплой и уютной атмосферы - от простых свечей до комфортных ковров и идеально подобранного освещения.">
                     <TextBlock.Effect>
-                        <DropShadowEffect Opacity="0.6"/>
+                        <DropShadowEffect Opacity="0.6" Color="Beige"/>
                     </TextBlock.Effect>
 
                 </TextBlock>
                 <TextBlock Foreground="White"
                     TextWrapping="Wrap" Text="        В Уютном доме вы найдете все необходимое для обустройства своего дома и создания прекрасной атмосферы, где вы будете чувствовать себя комфортно и уютно.">
                     <TextBlock.Effect>
-                        <DropShadowEffect Opacity="0.6"/>
+                        <DropShadowEffect Opacity="0.6" Color="Beige"/>
                     </TextBlock.Effect>
 
                 </TextBlock>
