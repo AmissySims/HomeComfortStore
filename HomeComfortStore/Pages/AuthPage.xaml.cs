@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HomeComfortStore.Pages
+namespace Admin.Pages
 {
     /// <summary>
     /// Логика взаимодействия для AuthPage.xaml
@@ -53,14 +53,14 @@ namespace HomeComfortStore.Pages
                 {
                     AccountUser.isAuth = true;
                     AccountUser.AuthUser = user;
-                    MessageBox.Show("Вход выполнен", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Вход выполнен", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                     NavigationService.Navigate(new MainPage());
 
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при входе: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
            
            

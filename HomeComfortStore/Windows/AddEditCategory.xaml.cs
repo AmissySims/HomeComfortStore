@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Client.Pages
+namespace Admin.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для MainMainPage.xaml
+    /// Логика взаимодействия для AddEditCategory.xaml
     /// </summary>
-    public partial class MainMainPage : Page
+    public partial class AddEditCategory : Window
     {
-        public MainMainPage()
+        public AddEditCategory()
         {
             InitializeComponent();
         }

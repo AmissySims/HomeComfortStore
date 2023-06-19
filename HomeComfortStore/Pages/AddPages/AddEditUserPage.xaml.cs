@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Client.Pages
+namespace Admin.Pages.AddPages
 {
     /// <summary>
-    /// Логика взаимодействия для MainMainPage.xaml
+    /// Логика взаимодействия для AddEditUserPage.xaml
     /// </summary>
-    public partial class MainMainPage : Page
+    public partial class AddEditUserPage : Page
     {
-        public MainMainPage()
+        public AddEditUserPage()
         {
             InitializeComponent();
         }

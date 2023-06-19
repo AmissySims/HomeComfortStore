@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HomeComfortStore.Pages
+namespace Admin.Pages
 {
     /// <summary>
     /// Логика взаимодействия для MainMainPage.xaml

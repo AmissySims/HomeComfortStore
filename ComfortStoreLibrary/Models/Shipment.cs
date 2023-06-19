@@ -23,6 +23,7 @@ namespace ComfortStoreLibrary.Models
         public int Id { get; set; }
         public Nullable<int> ProviderId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
+        public Nullable<decimal> Price { get; set; }
     
         public virtual Provider Provider { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

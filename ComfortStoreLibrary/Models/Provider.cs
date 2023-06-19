@@ -22,6 +22,7 @@ namespace ComfortStoreLibrary.Models
     
         public int Id { get; set; }
         public string Title { get; set; }
+        public string Adress { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shipment> Shipment { get; set; }

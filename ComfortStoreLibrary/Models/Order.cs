@@ -28,6 +28,7 @@ namespace ComfortStoreLibrary.Models
         public Nullable<int> DeliveryTypeId { get; set; }
         public Nullable<System.DateTime> DateToCome { get; set; }
         public string AdressToDelivery { get; set; }
+        public Nullable<decimal> Cost { get; set; }
     
         public virtual DeliveryPoint DeliveryPoint { get; set; }
         public virtual DeliveryType DeliveryType { get; set; }
