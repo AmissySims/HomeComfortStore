@@ -23,6 +23,17 @@ namespace Admin.Pages
         public ShipmentAndProviderPage()
         {
             InitializeComponent();
+            ProvFrame.NavigationService.Navigate(new ShipmentsPage());
+        }
+
+        private void ShipmentsBt_Click(object sender, RoutedEventArgs e)
+        {
+            ProvFrame.NavigationService.Navigate(new ShipmentsPage());
+        }
+
+        private void ProvidersBt_Click(object sender, RoutedEventArgs e)
+        {
+            ProvFrame.NavigationService.Navigate(new ProvidersPage());
         }
     }
 }

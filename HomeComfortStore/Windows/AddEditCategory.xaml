@@ -16,6 +16,7 @@
                      Text="{Binding Title}"
                      Width="200"
                      Height="25"
+                      TextWrapping="Wrap"
                      MaxLength="50"
                      PreviewTextInput="TitleTb_PreviewTextInput"/>
             <StackPanel Orientation="Horizontal"

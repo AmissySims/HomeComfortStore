@@ -10,9 +10,25 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="13*"/>
+            <RowDefinition Height="1*"/>
+          
+            <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
-        <Frame Grid.Row="1" x:Name="ProvFrame" NavigationUIVisibility="Hidden"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button x:Name="ShipmentsBt"
+                    Style="{StaticResource UpBt}"
+                    Margin="10 5"
+                    Width="100"
+                    Content=" Поставки "
+                    Click="ShipmentsBt_Click"/>
+            <Button x:Name="ProvidersBt"
+                    Style="{StaticResource UpBt}"
+                    Margin="10 5"
+                    Width="100"
+                    Content=" Поставщики "
+                    Click="ProvidersBt_Click"/>
+        </StackPanel>
+        <Frame x:Name="ProvFrame" NavigationUIVisibility="Hidden" Margin="5" Grid.Row="1"/>
     </Grid>
 </Page>
