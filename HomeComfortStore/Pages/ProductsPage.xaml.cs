@@ -47,7 +47,7 @@ namespace Admin.Pages
         {
             var found = FoundTb.Text.ToLower();
             var prod = App.db.Product.ToList();
-            if(string.IsNullOrEmpty(found) )
+            if(!string.IsNullOrEmpty(found) )
             {
                 prod = App.db.Product.Where(x => x.Title.ToLower().Contains(found)).ToList();
             }

@@ -26,12 +26,12 @@
             
             <ComboBox Margin="5" x:Name="FilterCb"
                       SelectedIndex="0"
-                      Width="90" Height="20" SelectionChanged="FilterCb_SelectionChanged"/>
+                      Width="110" Height="20" SelectionChanged="FilterCb_SelectionChanged"/>
             
             <TextBlock Text="Сортировка" Margin="5 10"/>
             
             <ComboBox Margin="5" x:Name="SortCb"
-                      Width="90"
+                      Width="100"
                       SelectedIndex="0"
                       Height="20" SelectionChanged="SortCb_SelectionChanged"/>
             
@@ -101,9 +101,10 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="DarkGreen"
+                    <Border BorderBrush="DarkOliveGreen"
                             Background="{Binding ColorBl}"
-                            Padding="3" BorderThickness="3">
+                            Padding="3" BorderThickness="3"
+                            Margin="5">
 
 
                         <Grid>
