@@ -94,5 +94,10 @@ namespace Admin.Pages
             }
 
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
