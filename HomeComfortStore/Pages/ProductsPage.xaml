@@ -142,12 +142,12 @@
                             </StackPanel>
                             <StackPanel Grid.Row="2">
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Content=" Редактировать "
+                                    <Button Content=" Редактирование "
                                         Margin="5 "
                                        x:Name="EditBt"
                                         Click="EditBt_Click"
                                         Style="{StaticResource MainBt}"/>
-                                    <Button Content=" Удалить "
+                                    <Button Content=" Удаление "
                                         Margin="5 "
                                        x:Name="DeleetBt"
                                         Click="DeleetBt_Click"
