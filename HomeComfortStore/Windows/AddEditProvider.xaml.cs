@@ -28,7 +28,7 @@ namespace Admin.Windows
             InitializeComponent();
             contextProv = provider;
             DataContext = contextProv; 
-            if(contextProv != null )
+            if(contextProv.Id != null )
             {
                 oldValues = App.db.Entry(contextProv).CurrentValues.Clone();
             }
