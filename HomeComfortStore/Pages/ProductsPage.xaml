@@ -25,12 +25,15 @@
             <TextBlock Text="Фильтр" Margin="5 10"/>
             
             <ComboBox Margin="5" x:Name="FilterCb"
+                      SelectedIndex="0"
                       Width="90" Height="20" SelectionChanged="FilterCb_SelectionChanged"/>
             
             <TextBlock Text="Сортировка" Margin="5 10"/>
             
             <ComboBox Margin="5" x:Name="SortCb"
-                      Width="90" Height="20" SelectionChanged="SortCb_SelectionChanged"/>
+                      Width="90"
+                      SelectedIndex="0"
+                      Height="20" SelectionChanged="SortCb_SelectionChanged"/>
             
             <TextBlock Text="Поиск" Margin="5 10"/>
            

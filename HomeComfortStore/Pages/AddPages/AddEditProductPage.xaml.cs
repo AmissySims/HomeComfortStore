@@ -18,7 +18,7 @@ namespace Admin.Pages.AddPages
     public partial class AddEditProductPage : Page
     {
         Product contextProd;
-        Warehouse conWare;
+        
         DbPropertyValues oldValues;
         public AddEditProductPage(Product prod)
         {
@@ -40,24 +40,48 @@ namespace Admin.Pages.AddPages
         {
             try
             {
-                if (contextProd.Id == 0)
+                if (string.IsNullOrEmpty(contextProd.Title))
                 {
-                    App.db.Product.Add(contextProd);
-                    Warehouse warehouse = new Warehouse
-                    {
-                        ProductId = contextProd.Id,
-                        Count = 0
-                    };
-                    App.db.Warehouse.Add(warehouse);
-
+                    MessageBox.Show("Заполните поле названия", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error); 
+                     return;
                 }
-                App.db.SaveChanges();
-                MessageBox.Show("Сохранено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                NavigationService.GoBack();
+                if (string.IsNullOrEmpty(contextProd.Description))
+                {
+                    MessageBox.Show("Заполните поле описания", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                if (contextProd.Price == 0 || PriceTb.Text.Length <= 0)
+                {
+                    MessageBox.Show("Заполните поле стоимости", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                if (contextProd.CategoryProduct == null)
+                {
+                    MessageBox.Show("Выберите категорию", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                else
+                {
+                    if (contextProd.Id == 0)
+                    {
+                        App.db.Product.Add(contextProd);
+                        Warehouse warehouse = new Warehouse
+                        {
+                            ProductId = contextProd.Id,
+                            Count = 0
+                        };
+                        App.db.Warehouse.Add(warehouse);
+
+                    }
+                    App.db.SaveChanges();
+                    MessageBox.Show("Сохранено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    NavigationService.GoBack();
+                }
+                
             }
            catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);;
+                MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -129,6 +153,14 @@ namespace Admin.Pages.AddPages
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void PriceTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if(!Char.IsDigit(e.Text, 0))
+            {
+                e.Handled = true;
             }
         }
     }

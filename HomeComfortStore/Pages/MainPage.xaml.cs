@@ -65,5 +65,10 @@ namespace Admin.Pages
         {
             Main1Frame.NavigationService.Navigate(new StatPage());
         }
+
+        private void CategoryBt_Click(object sender, RoutedEventArgs e)
+        {
+            Main1Frame.NavigationService.Navigate(new CategoriesPage());
+        }
     }
 }

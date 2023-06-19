@@ -9,6 +9,33 @@
       Title="CategoriesPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" 
+                   Margin="5"
+                    Orientation="Horizontal" 
+                   VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+
+            <TextBlock Text="Сортировка" Margin="5 10"/>
+
+            <ComboBox Margin="5" x:Name="SortCb"
+                      SelectedIndex="0"
+                      Width="90" Height="20" SelectionChanged="SortCb_SelectionChanged"/>
+
+            <TextBlock Text="Поиск" Margin="5 10"/>
+
+            <TextBox Width="130"
+                    x:Name="FoundTb" Height="20"
+                     Margin="5 0" TextChanged="FoundTb_TextChanged"/>
+
+            <Button x:Name="AddBt" Content="+" FontWeight="Bold" 
+                    Margin="5" Style="{StaticResource MainBt}"
+                     Width="30"
+                    Click="AddBt_Click"/>
+
+        </StackPanel>
     </Grid>
 </Page>

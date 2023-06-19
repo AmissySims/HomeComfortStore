@@ -24,5 +24,20 @@ namespace Admin.Pages
         {
             InitializeComponent();
         }
+
+        private void SortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void FoundTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void AddBt_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

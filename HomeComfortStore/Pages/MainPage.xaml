@@ -109,7 +109,11 @@
                         <LineBreak/>выдачи</TextBlock>
                     
                 </Button>
-
+                <Button Content=" Категории " 
+                    x:Name="CategoryBt"
+                    Click="CategoryBt_Click"
+                    Margin="10 5"
+                        Style="{StaticResource MainBt}"/>
             </StackPanel>
         </Border>
         <Frame x:Name="Main1Frame" Grid.Column="1" Grid.Row="2" NavigationUIVisibility="Hidden"/>
