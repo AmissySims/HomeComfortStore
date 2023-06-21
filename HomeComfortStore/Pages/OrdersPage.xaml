@@ -68,7 +68,7 @@
                                        Margin="5 5"/>
                                         <TextBlock Text="Статус"
                                        Margin="10 5"/>
-                                        <TextBlock Text="{Binding StatusOrder.Title}"
+                                        <TextBlock Text="{Binding OrdStatus.Title}"
                                        Margin="5 5"/>
 
                                     </StackPanel>
@@ -112,7 +112,7 @@
                                        Margin="5"/>
 
                                     </StackPanel>
-                                    <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Visibility="{Binding DateVisible}">
                                         <TextBlock Text="Дата получения" 
                                       Margin="10 5"/>
                                         <TextBlock Text="{Binding DateToCome, StringFormat=dd.MM.yyyy}"
@@ -120,7 +120,7 @@
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal" Visibility="{Binding AdressVisible1}">
 
-                                        <TextBlock Text="Адрес" 
+                                        <TextBlock Text="Адрес пункта выдачи" 
                                        Margin="10 5"/>
                                         <TextBlock Text="{Binding DeliveryPoint.Adress}"
                                        Margin="5"/>
@@ -129,7 +129,7 @@
                                 </StackPanel>
                                 <StackPanel Grid.Column="1">
                                     <ListBox d:ItemsSource="{d:SampleData ItemCount=8}"
-                                         ItemsSource="{Binding ShipmentProduct}"
+                                         ItemsSource="{Binding OrderProduct}"
                                          Margin="5"
                                          BorderBrush="Pink"
                                          BorderThickness="2"

@@ -58,12 +58,12 @@ namespace Admin.Pages
 
         private void StatusCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Refresh();
         }
 
         private void UserCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Refresh();
         }
 
         private void AddBt_Click(object sender, RoutedEventArgs e)

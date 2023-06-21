@@ -102,7 +102,7 @@
                 
                 <Button
                     x:Name="DeliveryPountsBt"
-                    Click="StatisticBt_Click"
+                    Click="DeliveryPountsBt_Click"
                     Style="{StaticResource MainBt}"
                     Margin="10 5">
                     <TextBlock TextAlignment="Center">Адреса пунктов

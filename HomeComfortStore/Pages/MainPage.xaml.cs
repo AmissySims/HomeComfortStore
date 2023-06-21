@@ -70,5 +70,10 @@ namespace Admin.Pages
         {
             Main1Frame.NavigationService.Navigate(new CategoriesPage());
         }
+
+        private void DeliveryPountsBt_Click(object sender, RoutedEventArgs e)
+        {
+            Main1Frame.NavigationService.Navigate(new DeliveryPointsPage());
+        }
     }
 }

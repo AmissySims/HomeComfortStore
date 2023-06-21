@@ -70,6 +70,7 @@
                              TextWrapping="Wrap"
                         Width="60" Height="20"/>
                     </StackPanel>
+             
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Категория" Margin="5 10"/>
                         <ComboBox Margin="5"
