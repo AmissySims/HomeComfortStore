@@ -36,7 +36,7 @@
                       DisplayMemberPath="FirstName"
                      
                       Width="110"
-                     Height="20" SelectionChanged="ProvCb_SelectionChanged"/>
+                     Height="20" SelectionChanged="UserCb_SelectionChanged"/>
             <Button x:Name="AddBt" Content="+" FontWeight="Bold" 
                     Margin="5" Style="{StaticResource MainBt}"
                      Width="30"

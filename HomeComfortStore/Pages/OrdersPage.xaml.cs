@@ -55,5 +55,20 @@ namespace Admin.Pages
         {
             Refresh();
         }
+
+        private void StatusCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void UserCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void AddBt_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
