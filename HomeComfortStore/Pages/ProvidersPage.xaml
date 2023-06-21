@@ -50,7 +50,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="DarkOliveGreen" 
-                            Background="White"
+                            
                             Padding="3" BorderThickness="3"
                             Margin="5">
                         <Grid>

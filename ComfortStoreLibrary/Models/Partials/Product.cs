@@ -58,7 +58,7 @@ namespace ComfortStoreLibrary.Models
                 {
                     return Brushes.LightGray;
                 }
-                else { return Brushes.White; }
+                else { return Brushes.Transparent; }
             }
            
         }

@@ -49,7 +49,7 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="DarkOliveGreen" Background="White"
+                    <Border BorderBrush="DarkOliveGreen" 
                             Padding="3" BorderThickness="3"
                             Margin="5">
                         <Grid>

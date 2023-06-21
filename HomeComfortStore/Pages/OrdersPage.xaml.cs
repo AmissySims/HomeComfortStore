@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ComfortStoreLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,36 @@ namespace Admin.Pages
         public OrdersPage()
         {
             InitializeComponent();
+            var stat = App.db.OrdStatus.ToList();
+            stat.Insert(0, new OrdStatus() { Title = "Все" });
+            StatusCb.ItemsSource = stat;
+
+            var use = App.db.User.ToList();
+            use.Insert(0, new User() { FirstName = "Все" });
+            UserCb.ItemsSource = use;
+        }
+
+        private void Refresh()
+        {
+            var users = UserCb.SelectedItem as User;
+            var status = StatusCb.SelectedItem as OrdStatus;
+            var ord = App.db.Order.ToList();
+
+            if (users != null && users.Id != 0)
+            {
+                ord = ord.Where(x => x.UserId == users.Id).ToList();
+            }
+
+            if (status != null && status.Id != 0)
+            {
+                ord = ord.Where(x => x.OrdStatusId == status.Id).ToList();
+            }
+
+            OrdersList.ItemsSource = ord;
+        }
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Refresh();
         }
     }
 }
