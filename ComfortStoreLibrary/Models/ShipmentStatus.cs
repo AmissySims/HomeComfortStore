@@ -12,31 +12,18 @@ namespace ComfortStoreLibrary.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class ShipmentStatus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public ShipmentStatus()
         {
-            this.Card = new HashSet<Card>();
-            this.DeliveryPoint = new HashSet<DeliveryPoint>();
-            this.Order = new HashSet<Order>();
+            this.Shipment = new HashSet<Shipment>();
         }
     
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string MiddleName { get; set; }
-        public Nullable<int> RoleId { get; set; }
-        public byte[] Photo { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
+        public string Title { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Card> Card { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DeliveryPoint> DeliveryPoint { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
-        public virtual Role Role { get; set; }
+        public virtual ICollection<Shipment> Shipment { get; set; }
     }
 }

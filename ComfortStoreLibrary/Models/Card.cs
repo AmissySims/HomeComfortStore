@@ -16,9 +16,9 @@ namespace ComfortStoreLibrary.Models
     {
         public int Id { get; set; }
         public Nullable<int> UserId { get; set; }
-        public Nullable<int> NumberCard { get; set; }
+        public string NumberCard { get; set; }
         public string DateCard { get; set; }
-        public Nullable<int> CVC { get; set; }
+        public string CVC { get; set; }
         public Nullable<decimal> Balance { get; set; }
     
         public virtual User User { get; set; }

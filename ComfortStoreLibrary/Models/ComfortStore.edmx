@@ -11,9 +11,9 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="int" />
-          <Property Name="NumberCard" Type="int" />
+          <Property Name="NumberCard" Type="varchar" MaxLength="16" />
           <Property Name="DateCard" Type="varchar" MaxLength="50" />
-          <Property Name="CVC" Type="int" />
+          <Property Name="CVC" Type="varchar" MaxLength="50" />
           <Property Name="Balance" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="CategoryProduct">
@@ -29,6 +29,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Adress" Type="nvarchar(max)" />
+          <Property Name="UserId" Type="int" />
         </EntityType>
         <EntityType Name="DeliveryType">
           <Key>
@@ -108,6 +109,8 @@
           <Property Name="ProviderId" Type="int" />
           <Property Name="Date" Type="date" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DateToCome" Type="date" />
+          <Property Name="ShipmentStatusId" Type="int" />
         </EntityType>
         <EntityType Name="ShipmentProduct">
           <Key>
@@ -117,6 +120,13 @@
           <Property Name="ProductId" Type="int" />
           <Property Name="ShipmentId" Type="int" />
           <Property Name="Count" Type="int" />
+        </EntityType>
+        <EntityType Name="ShipmentStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -133,7 +143,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FisrtName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" />
           <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
           <Property Name="RoleId" Type="int" />
@@ -157,6 +167,18 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Card">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryPoint_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="DeliveryPoint" Type="Self.DeliveryPoint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeliveryPoint">
               <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
@@ -271,6 +293,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Shipment_ShipmentStatus">
+          <End Role="ShipmentStatus" Type="Self.ShipmentStatus" Multiplicity="0..1" />
+          <End Role="Shipment" Type="Self.Shipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShipmentStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shipment">
+              <PropertyRef Name="ShipmentStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ShipmentProduct_Product">
           <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
           <End Role="ShipmentProduct" Type="Self.ShipmentProduct" Multiplicity="*" />
@@ -333,12 +367,17 @@
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Shipment" EntityType="Self.Shipment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShipmentProduct" EntityType="Self.ShipmentProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShipmentStatus" EntityType="Self.ShipmentStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Card_User" Association="Self.FK_Card_User">
             <End Role="User" EntitySet="User" />
             <End Role="Card" EntitySet="Card" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryPoint_User" Association="Self.FK_DeliveryPoint_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="DeliveryPoint" EntitySet="DeliveryPoint" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_DeliveryPoint" Association="Self.FK_Order_DeliveryPoint">
             <End Role="DeliveryPoint" EntitySet="DeliveryPoint" />
@@ -376,6 +415,10 @@
             <End Role="Provider" EntitySet="Provider" />
             <End Role="Shipment" EntitySet="Shipment" />
           </AssociationSet>
+          <AssociationSet Name="FK_Shipment_ShipmentStatus" Association="Self.FK_Shipment_ShipmentStatus">
+            <End Role="ShipmentStatus" EntitySet="ShipmentStatus" />
+            <End Role="Shipment" EntitySet="Shipment" />
+          </AssociationSet>
           <AssociationSet Name="FK_ShipmentProduct_Product" Association="Self.FK_ShipmentProduct_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="ShipmentProduct" EntitySet="ShipmentProduct" />
@@ -411,6 +454,7 @@
           <EntitySet Name="Role" EntityType="ComfortStoreModel.Role" />
           <EntitySet Name="Shipment" EntityType="ComfortStoreModel.Shipment" />
           <EntitySet Name="ShipmentProduct" EntityType="ComfortStoreModel.ShipmentProduct" />
+          <EntitySet Name="ShipmentStatus" EntityType="ComfortStoreModel.ShipmentStatus" />
           <EntitySet Name="sysdiagrams" EntityType="ComfortStoreModel.sysdiagrams" />
           <EntitySet Name="User" EntityType="ComfortStoreModel.User" />
           <EntitySet Name="Warehouse" EntityType="ComfortStoreModel.Warehouse" />
@@ -421,6 +465,10 @@
           <AssociationSet Name="FK_Product_CategoryProduct" Association="ComfortStoreModel.FK_Product_CategoryProduct">
             <End Role="CategoryProduct" EntitySet="CategoryProduct" />
             <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeliveryPoint_User" Association="ComfortStoreModel.FK_DeliveryPoint_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="DeliveryPoint" EntitySet="DeliveryPoint" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_DeliveryPoint" Association="ComfortStoreModel.FK_Order_DeliveryPoint">
             <End Role="DeliveryPoint" EntitySet="DeliveryPoint" />
@@ -466,6 +514,10 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
+          <AssociationSet Name="FK_Shipment_ShipmentStatus" Association="ComfortStoreModel.FK_Shipment_ShipmentStatus">
+            <End Role="ShipmentStatus" EntitySet="ShipmentStatus" />
+            <End Role="Shipment" EntitySet="Shipment" />
+          </AssociationSet>
           <AssociationSet Name="FK_ShipmentProduct_Shipment" Association="ComfortStoreModel.FK_ShipmentProduct_Shipment">
             <End Role="Shipment" EntitySet="Shipment" />
             <End Role="ShipmentProduct" EntitySet="ShipmentProduct" />
@@ -477,9 +529,9 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="Int32" />
-          <Property Name="NumberCard" Type="Int32" />
+          <Property Name="NumberCard" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
           <Property Name="DateCard" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CVC" Type="Int32" />
+          <Property Name="CVC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Balance" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="User" Relationship="ComfortStoreModel.FK_Card_User" FromRole="Card" ToRole="User" />
         </EntityType>
@@ -497,6 +549,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="ComfortStoreModel.FK_DeliveryPoint_User" FromRole="DeliveryPoint" ToRole="User" />
           <NavigationProperty Name="Order" Relationship="ComfortStoreModel.FK_Order_DeliveryPoint" FromRole="DeliveryPoint" ToRole="Order" />
         </EntityType>
         <EntityType Name="DeliveryType">
@@ -594,7 +648,10 @@
           <Property Name="ProviderId" Type="Int32" />
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DateToCome" Type="DateTime" Precision="0" />
+          <Property Name="ShipmentStatusId" Type="Int32" />
           <NavigationProperty Name="Provider" Relationship="ComfortStoreModel.FK_Shipment_Provider" FromRole="Shipment" ToRole="Provider" />
+          <NavigationProperty Name="ShipmentStatus" Relationship="ComfortStoreModel.FK_Shipment_ShipmentStatus" FromRole="Shipment" ToRole="ShipmentStatus" />
           <NavigationProperty Name="ShipmentProduct" Relationship="ComfortStoreModel.FK_ShipmentProduct_Shipment" FromRole="Shipment" ToRole="ShipmentProduct" />
         </EntityType>
         <EntityType Name="ShipmentProduct">
@@ -607,6 +664,14 @@
           <Property Name="Count" Type="Int32" />
           <NavigationProperty Name="Product" Relationship="ComfortStoreModel.FK_ShipmentProduct_Product" FromRole="ShipmentProduct" ToRole="Product" />
           <NavigationProperty Name="Shipment" Relationship="ComfortStoreModel.FK_ShipmentProduct_Shipment" FromRole="ShipmentProduct" ToRole="Shipment" />
+        </EntityType>
+        <EntityType Name="ShipmentStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Shipment" Relationship="ComfortStoreModel.FK_Shipment_ShipmentStatus" FromRole="ShipmentStatus" ToRole="Shipment" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -623,7 +688,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FisrtName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="RoleId" Type="Int32" />
@@ -631,6 +696,7 @@
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Card" Relationship="ComfortStoreModel.FK_Card_User" FromRole="User" ToRole="Card" />
+          <NavigationProperty Name="DeliveryPoint" Relationship="ComfortStoreModel.FK_DeliveryPoint_User" FromRole="User" ToRole="DeliveryPoint" />
           <NavigationProperty Name="Order" Relationship="ComfortStoreModel.FK_Order_User" FromRole="User" ToRole="Order" />
           <NavigationProperty Name="Role" Relationship="ComfortStoreModel.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
@@ -664,6 +730,18 @@
             </Principal>
             <Dependent Role="Product">
               <PropertyRef Name="CategoryProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeliveryPoint_User">
+          <End Type="ComfortStoreModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="ComfortStoreModel.DeliveryPoint" Role="DeliveryPoint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeliveryPoint">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -801,6 +879,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Shipment_ShipmentStatus">
+          <End Type="ComfortStoreModel.ShipmentStatus" Role="ShipmentStatus" Multiplicity="0..1" />
+          <End Type="ComfortStoreModel.Shipment" Role="Shipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShipmentStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shipment">
+              <PropertyRef Name="ShipmentStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ShipmentProduct_Shipment">
           <End Type="ComfortStoreModel.Shipment" Role="Shipment" Multiplicity="0..1" />
           <End Type="ComfortStoreModel.ShipmentProduct" Role="ShipmentProduct" Multiplicity="*" />
@@ -842,6 +932,7 @@
           <EntitySetMapping Name="DeliveryPoint">
             <EntityTypeMapping TypeName="ComfortStoreModel.DeliveryPoint">
               <MappingFragment StoreEntitySet="DeliveryPoint">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Adress" ColumnName="Adress" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -928,6 +1019,8 @@
           <EntitySetMapping Name="Shipment">
             <EntityTypeMapping TypeName="ComfortStoreModel.Shipment">
               <MappingFragment StoreEntitySet="Shipment">
+                <ScalarProperty Name="ShipmentStatusId" ColumnName="ShipmentStatusId" />
+                <ScalarProperty Name="DateToCome" ColumnName="DateToCome" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
@@ -941,6 +1034,14 @@
                 <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="ShipmentId" ColumnName="ShipmentId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShipmentStatus">
+            <EntityTypeMapping TypeName="ComfortStoreModel.ShipmentStatus">
+              <MappingFragment StoreEntitySet="ShipmentStatus">
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -965,7 +1066,7 @@
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FisrtName" ColumnName="FisrtName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

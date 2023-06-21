@@ -10,12 +10,19 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderBrush" Value="#FFF3CC53"/>
             <Setter Property="BorderThickness" Value="2"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <!--<Setter Property="Foreground" Value="Black"/>-->
+                    
+                </Trigger>
+            </Style.Triggers>
         </Style>
         <Style TargetType="Button" x:Key="AuthBt">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="BorderThickness" Value="2"/>
+            
         </Style>
 
         <!--#region Combobox -->
@@ -28,7 +35,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <SolidColorBrush x:Key="TextBox.Static.Background" Color="Pink"/>
+        <SolidColorBrush x:Key="TextBox.Static.Background" Color="#FFF3CC53"/>
         <Style x:Key="ComboBoxEditableTextBox" TargetType="{x:Type TextBox}">
             <Setter Property="OverridesDefaultStyle" Value="true"/>
             <Setter Property="AllowDrop" Value="true"/>
@@ -46,41 +53,41 @@
             </Setter>
         </Style>
         <LinearGradientBrush x:Key="ComboBox.Static.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="LightGray" Offset="0.0"/>
-            <GradientStop Color="LightGray" Offset="1.0"/>
+            <GradientStop Color="Pink" Offset="0.0"/>
+            <GradientStop Color="Pink" Offset="1.0"/>
         </LinearGradientBrush>
         <SolidColorBrush x:Key="ComboBox.Static.Border" Color="DarkOliveGreen"/>
         <SolidColorBrush x:Key="ComboBox.Static.Glyph" Color="DarkOliveGreen"/>
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Background" Color="#FFF3CC53"/>
-        <SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="#FFF3CC53"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="Pink"/>
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Background" Color="Transparent"/>
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Button.Border" Color="Transparent"/>
         <LinearGradientBrush x:Key="ComboBox.MouseOver.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="Pink" Offset="0.0"/>
-            <GradientStop Color="Pink" Offset="1.0"/>
+            <GradientStop Color="#FFF3CC53" Offset="0.0"/>
+            <GradientStop Color="#FFF3CC53" Offset="1.0"/>
         </LinearGradientBrush>
-        <SolidColorBrush x:Key="ComboBox.MouseOver.Border" Color="#FFF3CC53"/>
-        <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph" Color="#FFF3CC53"/>
-        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Background" Color="#FFF3CC53"/>
-        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Border" Color="#FFF3CC53"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Border" Color="Pink"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Glyph" Color="Pink"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Background" Color="Pink"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Border" Color="Pink"/>
         <LinearGradientBrush x:Key="ComboBox.MouseOver.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="Pink" Offset="0.0"/>
-            <GradientStop Color="Pink" Offset="1.0"/>
+            <GradientStop Color="#FFF3CC53" Offset="0.0"/>
+            <GradientStop Color="#FFF3CC53" Offset="1.0"/>
         </LinearGradientBrush>
-        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Button.Border" Color="#FFF3CC53"/>
+        <SolidColorBrush x:Key="ComboBox.MouseOver.Editable.Button.Border" Color="Pink"/>
         <LinearGradientBrush x:Key="ComboBox.Pressed.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="Pink" Offset="0.0"/>
-            <GradientStop Color="Pink" Offset="1.0"/>
+            <GradientStop Color="#FFF3CC53" Offset="0.0"/>
+            <GradientStop Color="#FFF3CC53" Offset="1.0"/>
         </LinearGradientBrush>
-        <SolidColorBrush x:Key="ComboBox.Pressed.Border" Color="#FFF3CC53"/>
-        <SolidColorBrush x:Key="ComboBox.Pressed.Glyph" Color="#FFF3CC53"/>
+        <SolidColorBrush x:Key="ComboBox.Pressed.Border" Color="Pink"/>
+        <SolidColorBrush x:Key="ComboBox.Pressed.Glyph" Color="Pink"/>
         <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Background" Color="#FFFFFFFF"/>
-        <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Border" Color="#FFF3CC53"/>
+        <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Border" Color="Pink"/>
         <LinearGradientBrush x:Key="ComboBox.Pressed.Editable.Button.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="Pink" Offset="0.0"/>
-            <GradientStop Color="Pink" Offset="1.0"/>
+            <GradientStop Color="#FFF3CC53" Offset="0.0"/>
+            <GradientStop Color="#FFF3CC53" Offset="1.0"/>
         </LinearGradientBrush>
-        <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Button.Border" Color="Gray"/>
+        <SolidColorBrush x:Key="ComboBox.Pressed.Editable.Button.Border" Color="Pink"/>
         <SolidColorBrush x:Key="ComboBox.Disabled.Background" Color="LightGray"/>
         <SolidColorBrush x:Key="ComboBox.Disabled.Border" Color="Gray"/>
         <SolidColorBrush x:Key="ComboBox.Disabled.Glyph" Color="Gray"/>
@@ -96,8 +103,8 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
-                        <Border x:Name="templateRoot" Background="{StaticResource ComboBox.Static.Background}" BorderBrush="{StaticResource ComboBox.Static.Border}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
-                            <Border x:Name="splitBorder" CornerRadius="70"  BorderBrush="Transparent" BorderThickness="1" HorizontalAlignment="Right" Margin="0" SnapsToDevicePixels="true" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}">
+                        <Border x:Name="templateRoot" Background="{StaticResource ComboBox.Static.Background}" BorderBrush="{StaticResource ComboBox.Static.Border}" BorderThickness="1.5" SnapsToDevicePixels="true">
+                            <Border x:Name="splitBorder" CornerRadius="70"  BorderBrush="Transparent" BorderThickness="2" HorizontalAlignment="Right" Margin="0" SnapsToDevicePixels="true" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}">
                                 <Path x:Name="arrow" Data="F1 M 0,0 L 2.667,2.66665 L 5.3334,0 L 5.3334,-1.78168 L 2.6667,0.88501 L0,-1.78168 L0,0 Z" Fill="{StaticResource ComboBox.Static.Glyph}" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"/>
                             </Border>
                         </Border>
@@ -299,6 +306,8 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+       
+        <!--#endregion-->
         <Style TargetType="Button" x:Key="UpBt">
             <Setter Property="Background" Value="Transparent"/>
             <!--<Setter Property="FontWeight" Value="Bold"/>-->
@@ -320,12 +329,19 @@
             </Style.Triggers>
 
         </Style>
-        <!--#endregion-->
         <Style TargetType="ListView">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
         </Style>
         <Style TargetType="ListViewItem">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+        </Style>
+        <Style TargetType="ListBoxItem">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
         </Style>

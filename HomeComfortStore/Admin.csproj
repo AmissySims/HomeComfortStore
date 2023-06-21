@@ -76,6 +76,9 @@
     <Compile Include="Pages\AddPages\AddShipmentPage.xaml.cs">
       <DependentUpon>AddShipmentPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CardsPage.xaml.cs">
+      <DependentUpon>CardsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ShipmentAndProviderPage.xaml.cs">
       <DependentUpon>ShipmentAndProviderPage.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,9 @@
     </Compile>
     <Compile Include="Windows\AddEditProvider.xaml.cs">
       <DependentUpon>AddEditProvider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TopUpBalanceWin.xaml.cs">
+      <DependentUpon>TopUpBalanceWin.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -121,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AuthPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CardsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,6 +191,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AddEditProvider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TopUpBalanceWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

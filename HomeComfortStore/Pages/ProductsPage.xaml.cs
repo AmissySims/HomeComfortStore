@@ -23,12 +23,12 @@ namespace Admin.Pages
     public partial class ProductsPage : Page
     {
         CategoryProduct selCateg;
-        Warehouse selWare;
+       
         public ProductsPage()
         {
             InitializeComponent();
             selCateg = null;
-            selWare = null;
+            
             FilterCb.Items.Add("Все");
             FilterCb.Items.Add("до 500");
             FilterCb.Items.Add("от 500 до 2000");

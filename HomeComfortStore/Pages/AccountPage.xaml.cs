@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Admin.Pages.AddPages;
+using ComfortStoreLibrary.Models;
+using Admin.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,46 @@ namespace Admin.Pages
     /// </summary>
     public partial class AccountPage : Page
     {
+        public static List<User> Users { get; set; } 
         public AccountPage()
         {
             InitializeComponent();
+           
+            
+        }
+
+        public void Refresh()
+        {
+            Users = App.db.User.Where(x => x.Id == AccountUser.AuthUser.Id).ToList();
+            Uselist.ItemsSource = Users;
+        }
+
+        private void EditBt_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var selUser = (sender as Button).DataContext as User;
+                NavigationService.Navigate(new AddEditUserPage(selUser));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void CardsBt_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CardsPage());
+        }
+
+        private void OrdersBt_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new OrdersPage());
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Refresh();
         }
     }
 }

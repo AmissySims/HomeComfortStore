@@ -38,6 +38,7 @@ namespace ComfortStoreLibrary.Models
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Shipment> Shipment { get; set; }
         public virtual DbSet<ShipmentProduct> ShipmentProduct { get; set; }
+        public virtual DbSet<ShipmentStatus> ShipmentStatus { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Warehouse> Warehouse { get; set; }

@@ -1,18 +1,8 @@
 ﻿using ComfortStoreLibrary.Models;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Admin.Windows
 {
@@ -27,8 +17,8 @@ namespace Admin.Windows
         {
             InitializeComponent();
             contextProv = provider;
-            DataContext = contextProv; 
-            if(contextProv.Id != null )
+            DataContext = contextProv;
+            if (contextProv.Id != 0)
             {
                 oldValues = App.db.Entry(contextProv).CurrentValues.Clone();
             }
@@ -40,7 +30,7 @@ namespace Admin.Windows
         }
         private void TitleTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            if(!Char.IsLetter(e.Text, 0))
+            if (!Char.IsLetter(e.Text, 0))
             {
                 e.Handled = true;
             }
@@ -93,7 +83,7 @@ namespace Admin.Windows
             {
                 MessageBox.Show($"Ошибка {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-           
+
         }
     }
 }

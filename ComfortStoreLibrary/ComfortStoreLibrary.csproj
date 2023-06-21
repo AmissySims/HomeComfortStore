@@ -90,6 +90,7 @@
     </Compile>
     <Compile Include="Models\Partials\AccountUser.cs" />
     <Compile Include="Models\Partials\Product.cs" />
+    <Compile Include="Models\Partials\User.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>ComfortStore.tt</DependentUpon>
     </Compile>
@@ -106,6 +107,9 @@
       <DependentUpon>ComfortStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ShipmentProduct.cs">
+      <DependentUpon>ComfortStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShipmentStatus.cs">
       <DependentUpon>ComfortStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagrams.cs">
