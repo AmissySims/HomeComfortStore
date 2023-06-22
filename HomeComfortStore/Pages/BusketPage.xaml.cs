@@ -48,9 +48,9 @@ namespace Admin.Pages
             {
                 foreach (var buc in bucketList)
                 {
-                   
-                    int countProd = App.db.Product.Where(p => p.Id == buc.Product.Id ).Select(p => p.Count).FirstOrDefault() ?? -1;
-                    if (countProd < buc.Product.Busket.Count)
+
+                    int countProd = App.db.Product.Where(p => p.Id == buc.Product.Id).Select(p => p.Count).FirstOrDefault() ?? -1;
+                    if (countProd < buc.Product.Count)
                     {
                         MessageBox.Show($"Остаток на складе {countProd}, укажите верное количество", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
@@ -63,13 +63,14 @@ namespace Admin.Pages
                 }
 
                 NavigationService.Navigate(new AddOrderPage(bucketList));
-        }
+
+            }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка при оформлении заказа: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
 
-}
 
         private void DeleteCommand(object sender, RoutedEventArgs e)
         {

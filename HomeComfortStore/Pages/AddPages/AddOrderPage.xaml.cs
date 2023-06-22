@@ -2,24 +2,11 @@
 using ComfortStoreLibrary.Models;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Data.Entity;
 using System.Linq;
 using System.Net.Sockets;
-using System.Security.Cryptography;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Admin.Pages.AddPages
 {
@@ -33,7 +20,7 @@ namespace Admin.Pages.AddPages
         {
 
             InitializeComponent();
-
+            Busket = bucketList;
             var points = App.db.DeliveryPoint.ToList();
             DeliveryPointCb.ItemsSource = points;
 
@@ -89,10 +76,10 @@ namespace Admin.Pages.AddPages
 
         }
 
-     
 
 
-        
+
+
 
         private void OrderBt_Click_1(object sender, RoutedEventArgs e)
         {
@@ -164,7 +151,7 @@ namespace Admin.Pages.AddPages
                             .FirstOrDefault();
                     selectedProd.Product.Count -= b.Count;
                     App.db.OrderProduct.Add(orderProduct);
-                  
+
                 }
 
                 //Сохранение

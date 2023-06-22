@@ -43,7 +43,9 @@
                   Loaded="LIstBucket_Loaded">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border Background="White" BorderBrush="Gold" BorderThickness="2" Padding="3" Margin="5 5">
+                    <Border  BorderBrush="DarkOliveGreen" 
+                             BorderThickness="3" Padding="3" 
+                             Margin="5 5">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="13*"/>
@@ -51,9 +53,18 @@
                                 <ColumnDefinition Width="19*"/>
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0" Margin="5">
-                                <Image Source="{Binding Product.MainPhoto}"
+                                <Image 
                                    Width="100"
-                                   Height="100"/>
+                                   Height="100">
+                                    <Image.Source>
+                                        <Binding Path="MainImage">
+                                            <Binding.TargetNullValue>
+                                                <BitmapImage UriSource="\Resources\logo.png"/>
+                                            </Binding.TargetNullValue>
+                                            
+                                        </Binding>
+                                    </Image.Source>
+                                </Image>
                             </StackPanel>
                             <StackPanel Grid.Column="1">
                                 <StackPanel>
@@ -62,14 +73,14 @@
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" >
                                     <TextBlock Text="Цена за штуку" Margin="5 0"/>
-                                    <TextBlock Text="{Binding Product.Price, StringFormat='{}{0} руб.'}"
+                                    <TextBlock Text="{Binding Product.Price, StringFormat='{}{0} '}"
                                      Margin="5 0"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" >
                                     <TextBlock Text="Сумма" Margin="5 0"/>
                                     <TextBlock 
                                         x:Name="TotalPriceTb"
-                                        Text="{Binding TotalPrice}"
+                                        Text="{Binding TotalPrice, StringFormat='{}{0} '}"
                                         Margin="5 0"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
