@@ -17,6 +17,7 @@ namespace ComfortStoreLibrary.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
+            this.Busket = new HashSet<Busket>();
             this.OrderProduct = new HashSet<OrderProduct>();
             this.ProductPhoto = new HashSet<ProductPhoto>();
             this.ShipmentProduct = new HashSet<ShipmentProduct>();
@@ -28,7 +29,10 @@ namespace ComfortStoreLibrary.Models
         public string Description { get; set; }
         public Nullable<int> CategoryProductId { get; set; }
         public Nullable<decimal> Price { get; set; }
+        public Nullable<int> Count { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Busket> Busket { get; set; }
         public virtual CategoryProduct CategoryProduct { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }

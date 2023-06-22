@@ -54,6 +54,13 @@
                     Click="AccountBt_Click"
                      Width="90"
                     Margin="5 0" />
+            <Button Content=" Корзина " 
+                    x:Name="BusketBt"
+                     FontWeight="Bold"
+                     Style="{StaticResource UpBt}"
+                    Click="BusketBt_Click"
+                     Width="90"
+                    Margin="5 0" />
             <Button Content=" Выход " 
                     x:Name="ExitBt"
                      Width="90"

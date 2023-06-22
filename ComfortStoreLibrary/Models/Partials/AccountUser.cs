@@ -10,6 +10,7 @@ namespace ComfortStoreLibrary.Models
     {
         public static User AuthUser = null;
         public static bool isAuth = false;
+        //public static List<Product> Products { get; set; } = new List<Product>();
 
     }
 }

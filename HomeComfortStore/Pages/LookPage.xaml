@@ -70,6 +70,12 @@
                             Margin="5"
                             Style="{StaticResource MainBt}"
                             Click="CancelBt_Click"/>
+                        <Button Content=" В корзину "
+                                            Visibility="{Binding Visibility}"
+                                        Margin="5 "
+                                       x:Name="BusketBt"
+                                        Click="BusketBt_Click"
+                                        Style="{StaticResource MainBt}"/>
                     </StackPanel>
 
                 </StackPanel>

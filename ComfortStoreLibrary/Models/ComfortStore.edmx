@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище ComfortStoreModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Busket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Count" Type="int" />
+        </EntityType>
         <EntityType Name="Card">
           <Key>
             <PropertyRef Name="Id" />
@@ -77,6 +86,7 @@
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="CategoryProductId" Type="int" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Count" Type="int" />
         </EntityType>
         <EntityType Name="ProductPhoto">
           <Key>
@@ -159,6 +169,30 @@
           <Property Name="ProductId" Type="int" />
           <Property Name="Count" Type="int" />
         </EntityType>
+        <Association Name="FK_Busket_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Busket" Type="Self.Busket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Busket">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Busket_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Busket" Type="Self.Busket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Busket">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Card_User">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Card" Type="Self.Card" Multiplicity="*" />
@@ -171,7 +205,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DeliveryPoint_User">
+        <Association Name="FK_DeliveryPoint_User1">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="DeliveryPoint" Type="Self.DeliveryPoint" Multiplicity="*" />
           <ReferentialConstraint>
@@ -354,6 +388,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище ComfortStoreModelContainer">
+          <EntitySet Name="Busket" EntityType="Self.Busket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CategoryProduct" EntityType="Self.CategoryProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeliveryPoint" EntityType="Self.DeliveryPoint" Schema="dbo" store:Type="Tables" />
@@ -371,11 +406,19 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Busket_Product" Association="Self.FK_Busket_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Busket" EntitySet="Busket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Busket_User" Association="Self.FK_Busket_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Busket" EntitySet="Busket" />
+          </AssociationSet>
           <AssociationSet Name="FK_Card_User" Association="Self.FK_Card_User">
             <End Role="User" EntitySet="User" />
             <End Role="Card" EntitySet="Card" />
           </AssociationSet>
-          <AssociationSet Name="FK_DeliveryPoint_User" Association="Self.FK_DeliveryPoint_User">
+          <AssociationSet Name="FK_DeliveryPoint_User1" Association="Self.FK_DeliveryPoint_User1">
             <End Role="User" EntitySet="User" />
             <End Role="DeliveryPoint" EntitySet="DeliveryPoint" />
           </AssociationSet>
@@ -441,6 +484,7 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ComfortStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ComfortStoreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Busket" EntityType="ComfortStoreModel.Busket" />
           <EntitySet Name="Card" EntityType="ComfortStoreModel.Card" />
           <EntitySet Name="CategoryProduct" EntityType="ComfortStoreModel.CategoryProduct" />
           <EntitySet Name="DeliveryPoint" EntityType="ComfortStoreModel.DeliveryPoint" />
@@ -458,6 +502,14 @@
           <EntitySet Name="sysdiagrams" EntityType="ComfortStoreModel.sysdiagrams" />
           <EntitySet Name="User" EntityType="ComfortStoreModel.User" />
           <EntitySet Name="Warehouse" EntityType="ComfortStoreModel.Warehouse" />
+          <AssociationSet Name="FK_Busket_Product" Association="ComfortStoreModel.FK_Busket_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Busket" EntitySet="Busket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Busket_User" Association="ComfortStoreModel.FK_Busket_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Busket" EntitySet="Busket" />
+          </AssociationSet>
           <AssociationSet Name="FK_Card_User" Association="ComfortStoreModel.FK_Card_User">
             <End Role="User" EntitySet="User" />
             <End Role="Card" EntitySet="Card" />
@@ -466,7 +518,7 @@
             <End Role="CategoryProduct" EntitySet="CategoryProduct" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
-          <AssociationSet Name="FK_DeliveryPoint_User" Association="ComfortStoreModel.FK_DeliveryPoint_User">
+          <AssociationSet Name="FK_DeliveryPoint_User1" Association="ComfortStoreModel.FK_DeliveryPoint_User1">
             <End Role="User" EntitySet="User" />
             <End Role="DeliveryPoint" EntitySet="DeliveryPoint" />
           </AssociationSet>
@@ -523,6 +575,17 @@
             <End Role="ShipmentProduct" EntitySet="ShipmentProduct" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Busket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Count" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="ComfortStoreModel.FK_Busket_Product" FromRole="Busket" ToRole="Product" />
+          <NavigationProperty Name="User" Relationship="ComfortStoreModel.FK_Busket_User" FromRole="Busket" ToRole="User" />
+        </EntityType>
         <EntityType Name="Card">
           <Key>
             <PropertyRef Name="Id" />
@@ -550,7 +613,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UserId" Type="Int32" />
-          <NavigationProperty Name="User" Relationship="ComfortStoreModel.FK_DeliveryPoint_User" FromRole="DeliveryPoint" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="ComfortStoreModel.FK_DeliveryPoint_User1" FromRole="DeliveryPoint" ToRole="User" />
           <NavigationProperty Name="Order" Relationship="ComfortStoreModel.FK_Order_DeliveryPoint" FromRole="DeliveryPoint" ToRole="Order" />
         </EntityType>
         <EntityType Name="DeliveryType">
@@ -608,6 +671,8 @@
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="CategoryProductId" Type="Int32" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Count" Type="Int32" />
+          <NavigationProperty Name="Busket" Relationship="ComfortStoreModel.FK_Busket_Product" FromRole="Product" ToRole="Busket" />
           <NavigationProperty Name="CategoryProduct" Relationship="ComfortStoreModel.FK_Product_CategoryProduct" FromRole="Product" ToRole="CategoryProduct" />
           <NavigationProperty Name="OrderProduct" Relationship="ComfortStoreModel.FK_OrderProduct_Product" FromRole="Product" ToRole="OrderProduct" />
           <NavigationProperty Name="ProductPhoto" Relationship="ComfortStoreModel.FK_ProductPhoto_Product" FromRole="Product" ToRole="ProductPhoto" />
@@ -695,8 +760,9 @@
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Busket" Relationship="ComfortStoreModel.FK_Busket_User" FromRole="User" ToRole="Busket" />
           <NavigationProperty Name="Card" Relationship="ComfortStoreModel.FK_Card_User" FromRole="User" ToRole="Card" />
-          <NavigationProperty Name="DeliveryPoint" Relationship="ComfortStoreModel.FK_DeliveryPoint_User" FromRole="User" ToRole="DeliveryPoint" />
+          <NavigationProperty Name="DeliveryPoint" Relationship="ComfortStoreModel.FK_DeliveryPoint_User1" FromRole="User" ToRole="DeliveryPoint" />
           <NavigationProperty Name="Order" Relationship="ComfortStoreModel.FK_Order_User" FromRole="User" ToRole="Order" />
           <NavigationProperty Name="Role" Relationship="ComfortStoreModel.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
@@ -709,6 +775,30 @@
           <Property Name="Count" Type="Int32" />
           <NavigationProperty Name="Product" Relationship="ComfortStoreModel.FK_Warehouse_Product" FromRole="Warehouse" ToRole="Product" />
         </EntityType>
+        <Association Name="FK_Busket_Product">
+          <End Type="ComfortStoreModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="ComfortStoreModel.Busket" Role="Busket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Busket">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Busket_User">
+          <End Type="ComfortStoreModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="ComfortStoreModel.Busket" Role="Busket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Busket">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Card_User">
           <End Type="ComfortStoreModel.User" Role="User" Multiplicity="0..1" />
           <End Type="ComfortStoreModel.Card" Role="Card" Multiplicity="*" />
@@ -733,7 +823,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DeliveryPoint_User">
+        <Association Name="FK_DeliveryPoint_User1">
           <End Type="ComfortStoreModel.User" Role="User" Multiplicity="0..1" />
           <End Type="ComfortStoreModel.DeliveryPoint" Role="DeliveryPoint" Multiplicity="*" />
           <ReferentialConstraint>
@@ -909,6 +999,16 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище ComfortStoreModelContainer" CdmEntityContainer="ComfortStoreEntities">
+          <EntitySetMapping Name="Busket">
+            <EntityTypeMapping TypeName="ComfortStoreModel.Busket">
+              <MappingFragment StoreEntitySet="Busket">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Card">
             <EntityTypeMapping TypeName="ComfortStoreModel.Card">
               <MappingFragment StoreEntitySet="Card">
@@ -982,6 +1082,7 @@
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="ComfortStoreModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Count" ColumnName="Count" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="CategoryProductId" ColumnName="CategoryProductId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

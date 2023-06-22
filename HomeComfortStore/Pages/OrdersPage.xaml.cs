@@ -1,4 +1,5 @@
-﻿using ComfortStoreLibrary.Models;
+﻿using Admin.Pages.AddPages;
+using ComfortStoreLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,9 +67,6 @@ namespace Admin.Pages
             Refresh();
         }
 
-        private void AddBt_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }

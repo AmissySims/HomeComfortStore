@@ -55,6 +55,11 @@ namespace Admin.Pages.AddPages
                     MessageBox.Show("Заполните поле стоимости", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
+                if (contextProd.Count < 0 || CountTb.Text.Length <= 0)
+                {
+                    MessageBox.Show("Заполните поле количество", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
                 if (contextProd.CategoryProduct == null)
                 {
                     MessageBox.Show("Выберите категорию", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -65,12 +70,7 @@ namespace Admin.Pages.AddPages
                     if (contextProd.Id == 0)
                     {
                         App.db.Product.Add(contextProd);
-                        Warehouse warehouse = new Warehouse
-                        {
-                            ProductId = contextProd.Id,
-                            Count = 0
-                        };
-                        App.db.Warehouse.Add(warehouse);
+                       
 
                     }
                     App.db.SaveChanges();

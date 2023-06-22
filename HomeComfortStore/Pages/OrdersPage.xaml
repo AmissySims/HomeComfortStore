@@ -37,10 +37,7 @@
                      
                       Width="110"
                      Height="20" SelectionChanged="UserCb_SelectionChanged"/>
-            <Button x:Name="AddBt" Content="+" FontWeight="Bold" 
-                    Margin="5" Style="{StaticResource MainBt}"
-                     Width="30"
-                    Click="AddBt_Click"/>
+          
         </StackPanel>
         <ListView Grid.Row="1"
                   x:Name="OrdersList"

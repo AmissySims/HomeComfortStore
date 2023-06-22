@@ -25,6 +25,7 @@ namespace ComfortStoreLibrary.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Busket> Busket { get; set; }
         public virtual DbSet<Card> Card { get; set; }
         public virtual DbSet<CategoryProduct> CategoryProduct { get; set; }
         public virtual DbSet<DeliveryPoint> DeliveryPoint { get; set; }

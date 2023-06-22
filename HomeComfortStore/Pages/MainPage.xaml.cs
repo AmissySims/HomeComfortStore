@@ -75,5 +75,10 @@ namespace Admin.Pages
         {
             Main1Frame.NavigationService.Navigate(new DeliveryPointsPage());
         }
+
+        private void BusketBt_Click(object sender, RoutedEventArgs e)
+        {
+            Main1Frame.NavigationService.Navigate(new BusketPage());
+        }
     }
 }

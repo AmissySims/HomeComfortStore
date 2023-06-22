@@ -70,7 +70,17 @@
                              TextWrapping="Wrap"
                         Width="60" Height="20"/>
                     </StackPanel>
-             
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Количество" Margin="5 10"/>
+                        <TextBox Margin="5"
+                                 x:Name="CountTb"
+                                 PreviewTextInput="PriceTb_PreviewTextInput"
+                                  Text="{Binding Count}" 
+                                 MaxLength="6"
+                             TextWrapping="Wrap"
+                        Width="60" Height="20"/>
+                    </StackPanel>
+
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Категория" Margin="5 10"/>
                         <ComboBox Margin="5"

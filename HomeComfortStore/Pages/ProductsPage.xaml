@@ -153,11 +153,19 @@
                                         Click="DeleetBt_Click"
                                         Style="{StaticResource MainBt}"/>
                                 </StackPanel>
-                                <Button Content=" Просмотр "
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button Content=" Просмотр "
                                         Margin="5 "
                                        x:Name="LookBt"
                                         Click="LookBt_Click"
                                         Style="{StaticResource MainBt}"/>
+                                    <Button Content=" В корзину "
+                                            Visibility="{Binding Visibility}"
+                                        Margin="5 "
+                                       x:Name="BusketBt"
+                                        Click="BusketBt_Click"
+                                        Style="{StaticResource MainBt}"/>
+                                </StackPanel>
                             </StackPanel>
                         </Grid>
                     </Border>

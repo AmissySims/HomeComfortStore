@@ -3,6 +3,8 @@ using ComfortStoreLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -104,8 +106,7 @@ namespace Admin.Pages
             try
             {
                 var selProd = (sender as Button).DataContext as Product;
-                var selWare = App.db.Warehouse.Where(x => x.ProductId == selProd.Id).ToList();
-                App.db.Warehouse.RemoveRange(selWare);
+              
                 App.db.Product.Remove(selProd);
                 App.db.SaveChanges();
                 MessageBox.Show("Товар удален", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -189,6 +190,42 @@ namespace Admin.Pages
         {
             selCateg = null;
             Refresh();
+        }
+
+        private void BusketBt_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var selectedProduct = (sender as Button).DataContext as Product;
+             
+                    Busket bucket = new Busket
+                    {
+                        Count = 1,
+                        UserId = AccountUser.AuthUser.Id,
+                        ProductId = selectedProduct.Id
+                    };
+
+                    var prodInBucket = App.db.Busket.Where(b => b.ProductId == bucket.ProductId && b.UserId == AccountUser.AuthUser.Id).FirstOrDefault();
+                    if (prodInBucket != null)
+                    {
+                        MessageBox.Show("Данный товар уже присутствует в корзине", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                        return;
+                    }
+                    App.db.Busket.Add(bucket);
+                    App.db.SaveChanges();
+                    MessageBoxResult result = MessageBox.Show("Товар добавлен в корзину. Хотите перейти в корзину сейчас?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        NavigationService.Navigate(new BusketPage());
+                    }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при добавлении в корзину: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
         }
     }
 }

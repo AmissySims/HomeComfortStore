@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace ComfortStoreLibrary.Models
@@ -22,6 +23,18 @@ namespace ComfortStoreLibrary.Models
             }
         }
 
+        public Visibility Visibility
+        { 
+            get
+            {
+                var selWare = this.Warehouse.FirstOrDefault(x => x.ProductId == Id);
+                if (selWare.Count == 0)
+                {
+                    return Visibility.Collapsed;
+                }
+                else { return Visibility.Visible; }
+            }
+        }
         public string IsAvalible
         {
             get
@@ -62,5 +75,13 @@ namespace ComfortStoreLibrary.Models
             }
            
         }
+
+        
+    }
+
+    public class BuscketItem
+    {
+        public Product Product { get; set; }
+        public int Count { get; set; }
     }
 }
