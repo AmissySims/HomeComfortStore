@@ -78,7 +78,7 @@
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="Кол-во товаров" 
                                       Margin="10 5"/>
-                                        <TextBlock Text="{Binding Quanity, StringFormat='{}{0} шт.'}"
+                                        <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}"
                                        Margin="5 5"/>
 
 
@@ -105,7 +105,7 @@
 
                                         <TextBlock Text="Адрес" 
                                        Margin="10 5"/>
-                                        <TextBlock Text="{Binding AdressDelivery}"
+                                        <TextBlock Text="{Binding AdressToDelivery}"
                                        Margin="5"/>
 
                                     </StackPanel>
@@ -151,8 +151,10 @@
                                     <StackPanel HorizontalAlignment="Center">
                                         <Button Margin="5" 
                                             Style="{StaticResource MainBt}"
+                                                Visibility="{Binding EditVisible}"
                                             x:Name="EditShipBt"
-                                            Content="Редактировать"/>
+                                            Content="Редактировать"
+                                                Click="EditShipBt_Click"/>
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>

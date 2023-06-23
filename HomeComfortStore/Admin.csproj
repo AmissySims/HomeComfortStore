@@ -100,6 +100,12 @@
     <Compile Include="Windows\AddEditProvider.xaml.cs">
       <DependentUpon>AddEditProvider.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\EditOrderWin.xaml.cs">
+      <DependentUpon>EditOrderWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditShipmentWin.xaml.cs">
+      <DependentUpon>EditShipmentWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\TopUpBalanceWin.xaml.cs">
       <DependentUpon>TopUpBalanceWin.xaml</DependentUpon>
     </Compile>
@@ -195,10 +201,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\WarehousePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\AddCardWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -212,6 +214,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AddEditProvider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditOrderWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditShipmentWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -262,9 +272,6 @@
     </Compile>
     <Compile Include="Pages\UsersPage.xaml.cs">
       <DependentUpon>UsersPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\WarehousePage.xaml.cs">
-      <DependentUpon>WarehousePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

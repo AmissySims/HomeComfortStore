@@ -1,4 +1,6 @@
-﻿using ComfortStoreLibrary.Models;
+﻿using Admin.Pages.AddPages;
+using Admin.Windows;
+using ComfortStoreLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace Admin.Pages
 {
@@ -33,6 +36,8 @@ namespace Admin.Pages
             stat.Insert(0, new ShipmentStatus() { Title = "Все" });
             StatusCb.ItemsSource = stat;
 
+            
+
         }
         private void Refresh()
         {
@@ -51,6 +56,7 @@ namespace Admin.Pages
             }
 
             ShipmentList.ItemsSource = shipment;
+           
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -69,7 +75,14 @@ namespace Admin.Pages
 
         private void AddBt_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new AddShipmentPage());
+        }
 
+        private void EditShipBt_Click(object sender, RoutedEventArgs e)
+        {
+            EditShipmentWin editShipment = new EditShipmentWin((sender as Button).DataContext as Shipment);
+            editShipment.ShowDialog();
+            Refresh();  
         }
     }
 }

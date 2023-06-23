@@ -31,7 +31,7 @@ namespace Admin.Pages.AddPages
             IfPickup.Visibility = Visibility.Hidden;
             var cards = App.db.Card.Where(x => x.UserId == AccountUser.AuthUser.Id).ToList();
             CardCb.ItemsSource = cards;
-            PriceTb.Text = $"{Convert.ToString(Busket.Sum(b => b.Count * b.Product.Price))}";
+            PriceTb.Text = $"{Convert.ToString(Busket.Sum(b => b.Count * b.Product.Price)) + " ₽"}";
         }
 
         private void Pickup_Checked(object sender, RoutedEventArgs e)

@@ -118,9 +118,10 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProviderId" Type="int" />
           <Property Name="Date" Type="date" />
-          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
           <Property Name="DateToCome" Type="date" />
           <Property Name="ShipmentStatusId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Count" Type="int" />
         </EntityType>
         <EntityType Name="ShipmentProduct">
           <Key>
@@ -315,6 +316,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Shipment_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Shipment" Type="Self.Shipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shipment">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Shipment_Provider">
           <End Role="Provider" Type="Self.Provider" Multiplicity="0..1" />
           <End Role="Shipment" Type="Self.Shipment" Multiplicity="*" />
@@ -454,6 +467,10 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductPhoto" EntitySet="ProductPhoto" />
           </AssociationSet>
+          <AssociationSet Name="FK_Shipment_Product" Association="Self.FK_Shipment_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Shipment" EntitySet="Shipment" />
+          </AssociationSet>
           <AssociationSet Name="FK_Shipment_Provider" Association="Self.FK_Shipment_Provider">
             <End Role="Provider" EntitySet="Provider" />
             <End Role="Shipment" EntitySet="Shipment" />
@@ -549,6 +566,10 @@
           <AssociationSet Name="FK_ProductPhoto_Product" Association="ComfortStoreModel.FK_ProductPhoto_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="ProductPhoto" EntitySet="ProductPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Shipment_Product" Association="ComfortStoreModel.FK_Shipment_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Shipment" EntitySet="Shipment" />
           </AssociationSet>
           <AssociationSet Name="FK_ShipmentProduct_Product" Association="ComfortStoreModel.FK_ShipmentProduct_Product">
             <End Role="Product" EntitySet="Product" />
@@ -676,6 +697,7 @@
           <NavigationProperty Name="CategoryProduct" Relationship="ComfortStoreModel.FK_Product_CategoryProduct" FromRole="Product" ToRole="CategoryProduct" />
           <NavigationProperty Name="OrderProduct" Relationship="ComfortStoreModel.FK_OrderProduct_Product" FromRole="Product" ToRole="OrderProduct" />
           <NavigationProperty Name="ProductPhoto" Relationship="ComfortStoreModel.FK_ProductPhoto_Product" FromRole="Product" ToRole="ProductPhoto" />
+          <NavigationProperty Name="Shipment" Relationship="ComfortStoreModel.FK_Shipment_Product" FromRole="Product" ToRole="Shipment" />
           <NavigationProperty Name="ShipmentProduct" Relationship="ComfortStoreModel.FK_ShipmentProduct_Product" FromRole="Product" ToRole="ShipmentProduct" />
           <NavigationProperty Name="Warehouse" Relationship="ComfortStoreModel.FK_Warehouse_Product" FromRole="Product" ToRole="Warehouse" />
         </EntityType>
@@ -712,9 +734,11 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProviderId" Type="Int32" />
           <Property Name="Date" Type="DateTime" Precision="0" />
-          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="DateToCome" Type="DateTime" Precision="0" />
           <Property Name="ShipmentStatusId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Count" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="ComfortStoreModel.FK_Shipment_Product" FromRole="Shipment" ToRole="Product" />
           <NavigationProperty Name="Provider" Relationship="ComfortStoreModel.FK_Shipment_Provider" FromRole="Shipment" ToRole="Provider" />
           <NavigationProperty Name="ShipmentStatus" Relationship="ComfortStoreModel.FK_Shipment_ShipmentStatus" FromRole="Shipment" ToRole="ShipmentStatus" />
           <NavigationProperty Name="ShipmentProduct" Relationship="ComfortStoreModel.FK_ShipmentProduct_Shipment" FromRole="Shipment" ToRole="ShipmentProduct" />
@@ -921,6 +945,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Shipment_Product">
+          <End Type="ComfortStoreModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="ComfortStoreModel.Shipment" Role="Shipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shipment">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ShipmentProduct_Product">
           <End Type="ComfortStoreModel.Product" Role="Product" Multiplicity="0..1" />
           <End Type="ComfortStoreModel.ShipmentProduct" Role="ShipmentProduct" Multiplicity="*" />
@@ -1120,9 +1156,10 @@
           <EntitySetMapping Name="Shipment">
             <EntityTypeMapping TypeName="ComfortStoreModel.Shipment">
               <MappingFragment StoreEntitySet="Shipment">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="ShipmentStatusId" ColumnName="ShipmentStatusId" />
                 <ScalarProperty Name="DateToCome" ColumnName="DateToCome" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

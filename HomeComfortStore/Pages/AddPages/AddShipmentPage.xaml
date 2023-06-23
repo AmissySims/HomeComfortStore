@@ -9,6 +9,35 @@
       Title="AddShipmentPage">
 
     <Grid>
+        <Border Padding="15" BorderBrush="DarkOliveGreen"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                BorderThickness="3">
+            <StackPanel HorizontalAlignment="Center" 
+                    Margin="5"
+                    VerticalAlignment="Center">
+                <TextBlock Text="Поставщик" Margin="5"/>
+                <ComboBox Margin="5" 
+                          DisplayMemberPath="Title"
+                      x:Name="Provcb"/>
+                <TextBlock Text="Товар" Margin="5"/>
+                <ComboBox x:Name="ProdCb" Margin="5"
+                          DisplayMemberPath="Title"/>
+                <TextBlock Text="Количество" Margin="5"/>
+                <TextBox x:Name="CountTb" Margin="5" Text="{Binding Count}"/>
+                <StackPanel Margin="5" Orientation="Horizontal" >
+                    <Button Content=" Оформить "
+                        Margin="5"
+                        x:Name="AddShipBt"
+                        Style="{StaticResource MainBt}" Click="AddShipBt_Click"/>
+                    <Button Content=" Отмена "
+                        Margin="5"
+                        x:Name="CancelBt"
+                        Style="{StaticResource MainBt}" Click="CancelBt_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
         
     </Grid>
 </Page>

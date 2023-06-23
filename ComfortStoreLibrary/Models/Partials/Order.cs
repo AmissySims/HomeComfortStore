@@ -53,14 +53,22 @@ namespace ComfortStoreLibrary.Models
 
             }
         }
-
-        public ObservableCollection<OrderProduct> ProductOrders
+        public Visibility EditVisible
         {
             get
             {
-                return new ObservableCollection<OrderProduct>(OrderProduct);
+                if (OrdStatusId == 6 || OrdStatusId == 7)
+                {
+                    return Visibility.Collapsed;
+
+                }
+                else
+                { return Visibility.Visible; }
+
             }
         }
+
+
         public int? Count
         {
             get

@@ -27,8 +27,8 @@ namespace ComfortStoreLibrary.Models
         { 
             get
             {
-                var selWare = this.Warehouse.FirstOrDefault(x => x.ProductId == Id);
-                if (selWare.Count == 0)
+                
+                if (Count == 0)
                 {
                     return Visibility.Collapsed;
                 }
@@ -40,8 +40,8 @@ namespace ComfortStoreLibrary.Models
             get
             {
                 
-                var selWare = this.Warehouse.FirstOrDefault(x => x.ProductId == Id);
-                if (selWare.Count == 0)
+                
+                if (Count == 0)
                 {
                     return $"Нет в наличии";
                 }
@@ -53,8 +53,8 @@ namespace ComfortStoreLibrary.Models
         {
             get
             {
-                var selWare = this.Warehouse.FirstOrDefault(x => x.ProductId == Id);
-                if (selWare.Count == 0)
+         
+                if (Count == 0)
                 {
                     return Brushes.Red;
                 }
@@ -66,8 +66,8 @@ namespace ComfortStoreLibrary.Models
         {
             get
             {
-                var selWare = this.Warehouse.FirstOrDefault(x => x.ProductId == Id);
-                if (selWare.Count == 0)
+                
+                if (Count == 0)
                 {
                     return Brushes.LightGray;
                 }

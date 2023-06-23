@@ -20,6 +20,7 @@ namespace ComfortStoreLibrary.Models
             this.Busket = new HashSet<Busket>();
             this.OrderProduct = new HashSet<OrderProduct>();
             this.ProductPhoto = new HashSet<ProductPhoto>();
+            this.Shipment = new HashSet<Shipment>();
             this.ShipmentProduct = new HashSet<ShipmentProduct>();
             this.Warehouse = new HashSet<Warehouse>();
         }
@@ -38,6 +39,8 @@ namespace ComfortStoreLibrary.Models
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductPhoto> ProductPhoto { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Shipment> Shipment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ShipmentProduct> ShipmentProduct { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

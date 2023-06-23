@@ -73,23 +73,14 @@
                                                Text="{Binding Date, StringFormat=dd.MM.yyyy}"/>
                                     </StackPanel>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="Стоимость"
-                                               Margin="5"/>
-                                    <TextBlock Margin="5"
-                                               Text="{Binding Price}"/>
-                                    <TextBlock Text="  Количество"
-                                               Margin="5"/>
-                                    <TextBlock Margin="5"
-                                               Text="{Binding Quantity}"/>
-                                </StackPanel>
+                               
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Статус"
                                                Margin="5"/>
                                     <TextBlock Margin="5"
                                                Text="{Binding ShipmentStatus.Title}"/>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Horizontal" Visibility="{Binding DateVisible}">
                                     <TextBlock Text="Дата прибытия"
                                                Margin="5"/>
                                     <TextBlock Margin="5"
@@ -97,34 +88,27 @@
                                 </StackPanel>
                             </StackPanel>
                             <StackPanel Grid.Column="1">
-                                <ListBox d:ItemsSource="{d:SampleData ItemCount=8}"
-                                         ItemsSource="{Binding ShipmentProduct}"
-                                         Margin="5"
-                                         BorderBrush="Pink"
-                                         BorderThickness="2"
-                                         Padding="2"
-                                         MaxWidth="400">
-                                    <ListBox.ItemsPanel>
-                                        <ItemsPanelTemplate>
-                                            <WrapPanel IsItemsHost="True"/>
-                                        </ItemsPanelTemplate>
-                                    </ListBox.ItemsPanel>
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <Border BorderThickness="1" BorderBrush="DarkOliveGreen" Padding="2" >
-                                                <StackPanel>
-                                                    <TextBlock Text="{Binding Product.Title}"/>
-                                                    <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}"/>
-                                                </StackPanel>
-                                            </Border>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
+                                <Border BorderBrush="Pink" BorderThickness="3"
+                                        Padding="10" Margin="5">
+                                    <Grid>
+                                        <Border BorderBrush="DarkOliveGreen" BorderThickness="2"
+                                        Padding="3" >
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Product.Title}"/>
+                                                <TextBlock Text="{Binding Count, StringFormat='{}{0} шт.'}"/>
+                                            </StackPanel>
+                                        </Border>
+                                        
+                                    </Grid>
+                                    
+                                </Border>
+                                
                                 <StackPanel HorizontalAlignment="Center">
                                     <Button Margin="5" 
                                             Style="{StaticResource MainBt}"
                                             x:Name="EditShipBt"
-                                            Content="Редактировать"/>
+                                            Content="Редактировать"
+                                            Click="EditShipBt_Click"/>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>

@@ -97,6 +97,7 @@
     <Compile Include="Models\Partials\AccountUser.cs" />
     <Compile Include="Models\Partials\Order.cs" />
     <Compile Include="Models\Partials\Product.cs" />
+    <Compile Include="Models\Partials\Shipment.cs" />
     <Compile Include="Models\Partials\User.cs" />
     <Compile Include="Models\Product.cs">
       <DependentUpon>ComfortStore.tt</DependentUpon>

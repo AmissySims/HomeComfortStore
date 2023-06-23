@@ -112,6 +112,7 @@
                                         <StackPanel Orientation="Horizontal">
                                             <Button x:Name="DeleteBt"
                                                  Margin="5"
+                                                    Visibility="{Binding AccVisible}"
                                                  Content=" Удаление "
                                                     Style="{StaticResource MainBt}" Click="DeleteBt_Click"/>
                                         </StackPanel>

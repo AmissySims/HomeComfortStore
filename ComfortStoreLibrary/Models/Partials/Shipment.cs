@@ -7,26 +7,21 @@ using System.Windows;
 
 namespace ComfortStoreLibrary.Models
 {
-    public partial class User
+    partial class Shipment
     {
-        public string FullName
+        public Visibility DateVisible
         {
             get
             {
-                return $"{FirstName} {LastName} {MiddleName}";
-            }
-        }
-
-       public  Visibility AccVisible
-        {
-            get
-            {
-                if(Id == AccountUser.AuthUser.Id)
+                if (DateToCome == null)
+                {
                     return Visibility.Collapsed;
+
+                }
                 else
-                    return Visibility.Visible;
+                { return Visibility.Visible; }
+
             }
         }
-
     }
 }

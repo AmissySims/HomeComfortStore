@@ -1,4 +1,5 @@
 ﻿using Admin.Pages.AddPages;
+using Admin.Windows;
 using ComfortStoreLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -67,6 +68,11 @@ namespace Admin.Pages
             Refresh();
         }
 
-        
+        private void EditShipBt_Click(object sender, RoutedEventArgs e)
+        {
+            EditOrderWin editOrder = new EditOrderWin((sender as Button).DataContext as Order);
+            editOrder.ShowDialog();
+            Refresh();
+        }
     }
 }
