@@ -23,5 +23,19 @@ namespace ComfortStoreLibrary.Models
 
             }
         }
+        public Visibility Visible
+        {
+            get
+            {
+                if (ShipmentStatusId == 1)
+                {
+                    return Visibility.Visible;
+
+                }
+                else
+                { return Visibility.Collapsed; }
+
+            }
+        }
     }
 }
