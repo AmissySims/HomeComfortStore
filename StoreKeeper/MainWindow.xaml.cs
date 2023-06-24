@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StoreKeeper.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace StoreKeeper
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.NavigationService.Navigate(new AuthPage());
         }
     }
 }

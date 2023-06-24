@@ -71,6 +71,14 @@
 
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Телефон"
+                                   Margin="5"/>
+                                <TextBlock Text="{Binding Phone}"
+                                    Margin="5"
+                                         Width="200" />
+
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Логин"
                                    Margin="5"/>
                                 <TextBlock Text="{Binding Login}"

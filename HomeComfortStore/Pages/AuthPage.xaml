@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <SolidColorBrush Color="FloralWhite" Opacity="0.2"/>
+            <SolidColorBrush Color="White" Opacity="0.2"/>
         </Grid.Background>
         <Border Width="350" Height="350" BorderBrush="Black" BorderThickness="3">
             <StackPanel HorizontalAlignment="Center" 
@@ -24,9 +24,9 @@
 
                 <StackPanel>
                     <TextBlock Text="Логин" HorizontalAlignment="Center" Margin="5"/>
-                    <TextBox x:Name="LoginTb" Margin="5" Width="120"/>
+                    <TextBox Style="{StaticResource AuthTb}" x:Name="LoginTb" Margin="5" Width="120"/>
                     <TextBlock Text="Пароль" HorizontalAlignment="Center" Margin="5"/>
-                    <TextBox x:Name="PasswordTb" Margin="5" Width="120"/>
+                    <TextBox Style="{StaticResource AuthTb}" x:Name="PasswordTb" Margin="5" Width="120"/>
                 </StackPanel>
                 <StackPanel Margin="5">
                     <Button x:Name="EnterBt" Content="Войти" 

@@ -59,6 +59,7 @@
                             <StackPanel Orientation="Horizontal" Grid.Column="0" >
 
                                 <StackPanel>
+                                    
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="Заказчик" Margin="10 5"/>
                                         <TextBlock Text="{Binding User.FullName}"
@@ -131,7 +132,7 @@
                                          BorderBrush="Pink"
                                          BorderThickness="2"
                                          Padding="2"
-                                         MaxWidth="400">
+                                         MaxWidth="200">
                                         <ListBox.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <WrapPanel IsItemsHost="True"/>

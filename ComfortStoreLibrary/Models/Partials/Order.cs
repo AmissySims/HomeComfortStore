@@ -68,7 +68,20 @@ namespace ComfortStoreLibrary.Models
             }
         }
 
+        public Visibility PointVisible
+        {
+            get
+            {
+                if (DeliveryTypeId == 1 && OrdStatusId == 5)
+                {
+                    return Visibility.Visible;
 
+                }
+                else
+                { return Visibility.Collapsed; }
+
+            }
+        }
         public int? Count
         {
             get

@@ -188,7 +188,7 @@ namespace Admin.Pages
             }
         }
 
-        private void CountTb_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        private void CountTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             if (!Char.IsDigit(e.Text, 0))
             {

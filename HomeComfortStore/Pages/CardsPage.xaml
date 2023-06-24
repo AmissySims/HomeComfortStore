@@ -18,11 +18,20 @@
                    Margin="5"
                     Orientation="Horizontal" 
                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Карты" FontSize="18"/>
+
+        </StackPanel>
+        <StackPanel Grid.Row="0" 
+                   Margin="5"
+                    Orientation="Horizontal" 
+                   VerticalAlignment="Center"
                     HorizontalAlignment="Right">
 
             
             
-            <Button x:Name="AddBt" Content=" Добавить карту "                   Margin="5" Style="{StaticResource MainBt}"
+            <Button x:Name="AddBt" Content=" Добавить карту "                  
+                    Margin="5" Style="{StaticResource MainBt}"
    
                     Click="AddBt_Click"/>
 
@@ -63,7 +72,7 @@
                             <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="5">
                                 <Button x:Name="TopUpBalanceBt"
                                                  Margin="5"
-                                                 Content=" Пополнить баанс "
+                                                 Content=" Пополнить баланс "
                                                  Style="{StaticResource MainBt}" Click="TopUpBalanceBt_Click"/>
                                 <Button x:Name="DeleteBt"
                                                  Margin="5"

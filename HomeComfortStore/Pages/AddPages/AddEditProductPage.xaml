@@ -16,6 +16,7 @@
             <StackPanel>
                 <StackPanel Orientation="Vertical">
                     <ListView Margin="5 0" x:Name="ImageList"
+                              HorizontalAlignment="Center"
                               d:ItemsSource="{d:SampleData ItemCount=5}">
                         <ListView.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -58,7 +59,7 @@
                         <TextBox Margin="5"
                         Text="{Binding Description}" 
                              TextWrapping="Wrap"
-                        Width="250" Height="50"/>
+                        Width="250" Height="80"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Стоимость" Margin="5 10"/>

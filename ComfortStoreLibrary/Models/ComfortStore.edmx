@@ -92,7 +92,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductId" Type="int" />
           <Property Name="Image" Type="image" />
         </EntityType>
@@ -161,6 +161,7 @@
           <Property Name="Photo" Type="image" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Warehouse">
           <Key>
@@ -705,7 +706,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductId" Type="Int32" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Product" Relationship="ComfortStoreModel.FK_ProductPhoto_Product" FromRole="ProductPhoto" ToRole="Product" />
@@ -784,6 +785,7 @@
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Busket" Relationship="ComfortStoreModel.FK_Busket_User" FromRole="User" ToRole="Busket" />
           <NavigationProperty Name="Card" Relationship="ComfortStoreModel.FK_Card_User" FromRole="User" ToRole="Card" />
           <NavigationProperty Name="DeliveryPoint" Relationship="ComfortStoreModel.FK_DeliveryPoint_User1" FromRole="User" ToRole="DeliveryPoint" />
@@ -1198,6 +1200,7 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="ComfortStoreModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />

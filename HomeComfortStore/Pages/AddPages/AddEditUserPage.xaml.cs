@@ -4,10 +4,12 @@ using System;
 using System.Data.Entity.Infrastructure;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Admin.Pages.AddPages
 {
@@ -44,47 +46,61 @@ namespace Admin.Pages.AddPages
         {
             try
             {
-                if (string.IsNullOrEmpty(contextUser.FirstName))
+                if (Regex.IsMatch(contextUser.Phone, @"^((\+?7|8)[ -]?)?([(]?\d[- ]?[()]?){10}$") && Regex.IsMatch(contextUser.Phone, @"^(\+?7|8)?[\s(-]?[(-]?\d{3,4}[)-]?[ )-]?\d{2,7}[ -]?\d{2,4}[ -]?\d{0,2}$"))
                 {
-                    MessageBox.Show("Заполните поле фамилии", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-                if (string.IsNullOrEmpty(contextUser.LastName))
-                {
-                    MessageBox.Show("Заполните поле имени", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-                if (string.IsNullOrEmpty(contextUser.MiddleName))
-                {
-                    MessageBox.Show("Заполните поле отчества", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-                if (string.IsNullOrEmpty(contextUser.Login))
-                {
-                    MessageBox.Show("Заполните поле логина", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-                if (string.IsNullOrEmpty(contextUser.Password))
-                {
-                    MessageBox.Show("Заполните поле пароля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-                if (contextUser.Role == null)
-                {
-                    MessageBox.Show("Выберите роль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
+                    if (string.IsNullOrWhiteSpace(contextUser.Phone))
+                    {
+                        MessageBox.Show("Заполните поле телефона", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    if (string.IsNullOrEmpty(contextUser.FirstName))
+                    {
+                        MessageBox.Show("Заполните поле фамилии", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    if (string.IsNullOrEmpty(contextUser.LastName))
+                    {
+                        MessageBox.Show("Заполните поле имени", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    if (string.IsNullOrEmpty(contextUser.MiddleName))
+                    {
+                        MessageBox.Show("Заполните поле отчества", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    if (string.IsNullOrEmpty(contextUser.Login))
+                    {
+                        MessageBox.Show("Заполните поле логина", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    if (string.IsNullOrEmpty(contextUser.Password))
+                    {
+                        MessageBox.Show("Заполните поле пароля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    if (contextUser.Role == null)
+                    {
+                        MessageBox.Show("Выберите роль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                    else
+                    {
+                        if (contextUser.Id == 0)
+                        {
+                            App.db.User.Add(contextUser);
+                        }
+                        App.db.SaveChanges();
+                        MessageBox.Show("Сохранено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                        NavigationService.GoBack();
+
+                    }
                 }
                 else
                 {
-                    if (contextUser.Id == 0)
-                    {
-                        App.db.User.Add(contextUser);
-                    }
-                    App.db.SaveChanges();
-                    MessageBox.Show("Сохранено", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                    NavigationService.GoBack();
-
+                    MessageBox.Show($" Проверьте  телефон {contextUser.Phone} на корректность", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                  
                 }
+
 
             }
             catch (Exception ex)
@@ -136,5 +152,7 @@ namespace Admin.Pages.AddPages
             }
 
         }
+
+        
     }
 }

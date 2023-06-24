@@ -141,6 +141,7 @@ namespace Admin.Pages.AddPages
                   
                     App.db.ProductPhoto.Remove(selImage);
                     App.db.SaveChanges();
+                    Refresh();
                    
                 }
                 else

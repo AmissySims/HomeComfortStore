@@ -76,11 +76,6 @@ namespace Admin.Pages.AddPages
 
         }
 
-
-
-
-
-
         private void OrderBt_Click_1(object sender, RoutedEventArgs e)
         {
             try
