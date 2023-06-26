@@ -52,7 +52,7 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Стоимость" Margin="5 10"/>
                         <TextBlock Margin="5"
-                        Text="{Binding Price}" 
+                       Text="{Binding Price, StringFormat='{}{0} ₽'}" 
                              TextWrapping="Wrap"
                         Width="60" Height="20"/>
                     </StackPanel>

@@ -41,20 +41,12 @@ namespace Admin.Pages
                 return;
             }
             MainChart.Series.Clear();
-
-
-            foreach (var delivery in App.db.Order)
-            {
-                var seria = MainChart.Series.Add($"#{delivery.User.FullName}");
-                var chartData = App.db.Order.ToList()
-                    .Where(o => o.Date >= startDate.Value.Date && o.Date <=
-           endDate)
-                    .GroupBy(o => o.UserId)
-                    .ToDictionary(key => key.Key, value => value.Count());
-                seria.Points.DataBindXY(chartData.Keys, chartData.Values);
-                seria.BorderWidth = 5;
-                seria.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-            }
+            var seria = MainChart.Series.Add("Количество заказов");
+            var chartDate = App.db.Order.ToList().Where(z => z.Date >= startDate.Value.Date && z.Date <= endDate).OrderBy(u => u.UserId)
+                .GroupBy(x => x.User.FullName)
+                .ToDictionary(key => key.Key, value => value.Count());
+            seria.Points.DataBindXY(chartDate.Keys, chartDate.Values);
+            seria.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
         }
     }
 }

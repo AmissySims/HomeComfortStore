@@ -30,7 +30,7 @@ namespace Admin.Pages
             stat.Insert(0, new OrdStatus() { Title = "Все" });
             StatusCb.ItemsSource = stat;
 
-            var use = App.db.User.ToList();
+            var use = App.db.User.Where(x => x.RoleId == 1 || x.RoleId == 2).ToList();
             use.Insert(0, new User() { FirstName = "Все" });
             UserCb.ItemsSource = use;
         }
@@ -39,7 +39,7 @@ namespace Admin.Pages
         {
             var users = UserCb.SelectedItem as User;
             var status = StatusCb.SelectedItem as OrdStatus;
-            var ord = App.db.Order.ToList();
+            var ord = App.db.Order.Where(x => x.User.RoleId == 1 || x.User.RoleId == 2).ToList();
 
             if (users != null && users.Id != 0)
             {

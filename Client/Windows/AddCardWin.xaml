@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client.Windows"
         mc:Ignorable="d"
-        Title="AddCardWin" Height="300" Width="500">
+        Title="Карта" Height="300" Width="500">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Vertical">

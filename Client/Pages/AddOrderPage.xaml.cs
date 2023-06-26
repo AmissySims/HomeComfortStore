@@ -71,7 +71,7 @@ namespace Client.Pages
         private void AddCardBt_Click(object sender, RoutedEventArgs e)
         {
             AddCardWin addCard = new AddCardWin(new Card());
-            addCard.Show();
+            addCard.ShowDialog();
             var cards = App.db.Card.Where(x => x.UserId == AccountUser.AuthUser.Id).ToList();
             CardCb.ItemsSource = cards;
 

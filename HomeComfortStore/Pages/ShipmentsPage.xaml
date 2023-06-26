@@ -105,6 +105,7 @@
                                 
                                 <StackPanel HorizontalAlignment="Center">
                                     <Button Margin="5" 
+                                            Visibility="{Binding Visible}"
                                             Style="{StaticResource MainBt}"
                                             x:Name="EditShipBt"
                                             Content="Редактирование"
