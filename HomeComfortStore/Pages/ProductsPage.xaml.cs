@@ -87,7 +87,7 @@ namespace Admin.Pages
             {
                 prod = prod.OrderBy(x => x.Price).ToList();
             }
-            if (SortCb.SelectedIndex == 1)
+            if (SortCb.SelectedIndex == 4)
             {
                 prod = prod.OrderByDescending(x => x.Price).ToList();
             }
